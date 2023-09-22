@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".fragment.login.SmsCodeFragment">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="@dimen/margin_padding_4dp"
+            tools:ignore="UnusedAttribute">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/backToHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/margin_padding_12dp"
+                android:src="@drawable/ic_back_icon"
+                app:tint="@color/txt_hint_color" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/smsBack"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/text_size_20sp" />
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_padding_56dp"
+            android:text="@string/enterCode"
+            android:textAppearance="@style/boldStyle"
+            android:textSize="@dimen/text_size_24sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_nomer"
+            android:layout_width="263dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_padding_12dp"
+            android:fontFamily="@font/inter_regular"
+            android:gravity="center"
+            android:text="@string/sendSMStoNum"
+            android:textColor="@color/txt_color"
+            android:textSize="@dimen/text_size_14sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_padding_36dp">
+
+            <com.mukesh.OtpView
+                android:id="@+id/otp_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:focusableInTouchMode="true"
+                android:inputType="number"
+                android:itemBackground="@drawable/ic_number_icon"
+                android:longClickable="false"
+                android:textColor="@color/green"
+                android:textIsSelectable="false"
+                android:textSize="27sp"
+                app:OtpHideLineWhenFilled="true"
+                app:OtpItemCount="6"
+                app:OtpLineColor="@color/green"
+                app:OtpState_filled="true"
+                app:OtpViewType="line" />
+        </FrameLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layot_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/margin_padding_36dp"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/time_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin_padding_32dp"
+                android:text="00:59"
+                android:textSize="@dimen/text_size_14sp"
+                tools:ignore="HardcodedText" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tct_return"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin_padding_16dp"
+                android:text="@string/sendAgain"
+                android:textColor="@color/green"
+                android:textSize="@dimen/text_size_16sp"
+                android:visibility="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/signIn"
+                style="@style/btnGreen"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_size"
+                android:layout_marginHorizontal="@dimen/margin_padding_16dp"
+                android:letterSpacing="-0.005"
+                android:text="@string/continue_"
+                android:textSize="@dimen/text_size_16sp"
+                tools:ignore="UnusedAttribute" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loader"
+        android:layout_width="@dimen/loader"
+        android:layout_height="@dimen/loader"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loader" />
+</FrameLayout>

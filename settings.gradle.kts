@@ -10,6 +10,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        //noinspection JcenterRepositoryObsolete
+        jcenter()
+        maven { url = uri("https://www.jitpack.io" ) }
     }
 }
 

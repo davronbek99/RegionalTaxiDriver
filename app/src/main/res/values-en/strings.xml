@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">RegionalTaxiDriver</string>
+    <string name="google_map_api_key">AIzaSyBkbkmB3-DgM4IXuc3g-smbbrOLUi6jJ54</string>
+    <string name="you_are_not_online">You are not online</string>
+    <string name="tv_next">Next</string>
+    <string name="tv_skip">Skip</string>
+    <string name="tv_intro1">Yaqin-atrofdagi jamoat haydovchisi olib ketishini so\'rang</string>
+    <string name="tv_start">Start</string>
+    <string name="tv_intro2">Katta haydovchilar tarmog\'i sizga qulay, xavfsiz va arzon sayohatni topishga yordam beradi</string>
+    <string name="tv_intro3">Haydovchini oldindan bilib oling va xaritada real vaqt rejimida joriy manzilni ko\'rish imkoniyatiga ega bo\'ling</string>
+
+
+    <!--    month -->
+    <string name="jan">Jan</string>
+    <string name="feb">Feb</string>
+    <string name="march">March</string>
+    <string name="april">Apr</string>
+    <string name="may">May</string>
+    <string name="jun">June</string>
+    <string name="july">July</string>
+    <string name="aug">Aug</string>
+    <string name="sep">Sep</string>
+    <string name="oct">Oct</string>
+    <string name="nov">Nov</string>
+    <string name="dec">Dec</string>
+    <string name="registerSimple">Kirish</string>
+    <string name="auth_phone_title">Войти в систему</string>
+    <string name="phone_auth_text">Через номер телефона</string>
+    <string name="text_phone">Номер телефона</string>
+    <string name="enterSomething">Ввидени что-то</string>
+    <string name="fragment_login_phone_sms">Наш номер номер придёт СМС с кодом подверждение</string>
+    <string name="numberDoesNotExist">В систему отсуствует такой номер</string>
+    <string name="signIn">Войти</string>
+    <string name="smsBack">Вход</string>
+    <string name="enterCode">Войти код-парол</string>
+    <string name="sendSMStoNum">На ваш номер +998 90 568 1015 отправлен SMS с кодом</string>
+    <string name="sendAgain">Отправит занова</string>
+    <string name="continue_">Продолжить</string>
+    <string name="region_taxi">Region</string>
+    <string name="activity">Activity</string>
+    <string name="profile">Профиль</string>
+    <string name="no_internet">No internet connection</string>
+    <string name="online">Online</string>
+</resources>

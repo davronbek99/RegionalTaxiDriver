@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_nav_graph"
+    app:startDestination="@id/phoneFragment">
+
+    <fragment
+        android:id="@+id/phoneFragment"
+        android:name="dev.davron.regionaltaxidriver.fragment.login.PhoneFragment"
+        android:label="fragment_phone"
+        tools:layout="@layout/fragment_phone" />
+
+
+    <action
+        android:id="@+id/to_sms_code"
+        app:destination="@id/smsCodeFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+    <fragment
+        android:id="@+id/smsCodeFragment"
+        android:name="dev.davron.regionaltaxidriver.fragment.login.SmsCodeFragment"
+        android:label="fragment_sms_code"
+        tools:layout="@layout/fragment_sms_code" />
+</navigation>
