@@ -43,4 +43,17 @@
     <string name="profile">Профиль</string>
     <string name="no_internet">No internet connection</string>
     <string name="online">Online</string>
+    <string name="profile_toolbar">Profile</string>
+    <string name="fragment_profile_first">Ваш ID</string>
+    <string name="fragment_profile_first_status">Ваш уровен</string>
+    <string name="profile_interest_rate">Процентная ставка</string>
+    <string name="fragment_profile_earning">Заработок</string>
+    <string name="learning">Обучение</string>
+    <string name="fragment_profile_balance">Мои карты</string>
+    <string name="fragment_profile_transport">Транспорт</string>
+    <string name="fragment_profile_language">Язык</string>
+    <string name="fragment_profile_night">Ночной режим</string>
+    <string name="fragment_profile_setting">Настройки</string>
+    <string name="fragment_profile_first_support">Служба поддержки</string>
+    <string name="fragment_profile_first_exit">Выйти из профиля</string>
 </resources>

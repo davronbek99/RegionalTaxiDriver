@@ -22,4 +22,95 @@
 
         <attr name="android:fontFamily" />
     </declare-styleable>
+
+    <declare-styleable name="Theme">
+
+        <attr name="line" format="color" />
+        <attr name="zaybal" format="color" />
+        <attr name="bgColor" format="color" />
+        <attr name="bgGreenColor" format="color" />
+        <attr name="txtColor" format="color" />
+        <attr name="txtHintColor" format="color" />
+        <attr name="sectionLayout" format="color" />
+        <attr name="cardSection" format="color" />
+        <attr name="grayCard" format="color" />
+        <attr name="cardSectionStoke" format="color" />
+        <attr name="background59" format="color" />
+        <attr name="homeCorner12" format="color" />
+        <attr name="viewLine" format="color" />
+        <attr name="PaymeCard" format="color" />
+        <attr name="bottomNav" format="color" />
+        <attr name="bottomNavIconTint" format="color" />
+        <attr name="notifyIcon" format="color" />
+        <attr name="Green" format="color" />
+        <attr name="Black" format="color" />
+        <attr name="White" format="color" />
+        <attr name="Dark_Gray" format="color" />
+        <attr name="Gray" format="color" />
+        <attr name="Red" format="color" />
+        <attr name="blue" format="color" />
+        <attr name="yellow" format="color" />
+        <attr name="editTextColor" format="color" />
+        <attr name="editStokeEdit" format="color" />
+        <attr name="strokeItem" format="color" />
+        <attr name="phoneIconTint" format="color" />
+        <attr name="switchTrack" format="color" />
+        <attr name="button80" format="color" />
+        <attr name="yourLineLayout" format="color" />
+        <attr name="lineHome" format="color" />
+        <attr name="bgHomeLine" format="color" />
+        <attr name="btnHomeYouLine" format="color" />
+        <attr name="mapLayout" format="color" />
+        <attr name="mapItem742" format="color" />
+        <attr name="mapItem080" format="color" />
+        <attr name="chatYouLayout" format="color" />
+        <attr name="chatMeLayout" format="color" />
+        <attr name="bgMap" format="color" />
+        <attr name="sectionCountry" format="color" />
+        <attr name="homeCardPost" format="color" />
+        <attr name="button_earning_control_api" format="color" />
+        <attr name="alphaLoginText" format="color" />
+        <attr name="navigatorInteriorMap" format="color" />
+        <attr name="roteCardSectionStoke" format="color" />
+        <attr name="progressColorFirst" format="color" />
+
+        <attr name="otp_line" format="color" />
+
+        <attr name="cardColorX" format="color" />
+        <attr name="premium_color_socket" format="color" />
+        <attr name="woman_color_socket" format="color" />
+
+        <attr name="profileColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="SwipeButton">
+        <attr name="inner_text" format="string" />
+        <attr name="inner_text_color" format="color" />
+        <attr name="inner_text_size" format="dimension" />
+        <attr name="inner_text_left_padding" format="dimension" />
+        <attr name="inner_text_right_padding" format="dimension" />
+        <attr name="inner_text_top_padding" format="dimension" />
+        <attr name="inner_text_bottom_padding" format="dimension" />
+        <attr name="inner_text_background" format="reference" />
+        <attr name="button_image_width" format="dimension" />
+        <attr name="button_image_height" format="dimension" />
+        <attr name="button_trail_enabled" format="boolean" />
+        <attr name="button_trail_drawable" format="reference" />
+        <attr name="button_image_disabled" format="reference" />
+        <attr name="button_image_enabled" format="reference" />
+        <attr name="button_left_padding" format="dimension" />
+        <attr name="button_right_padding" format="dimension" />
+        <attr name="button_top_padding" format="dimension" />
+        <attr name="button_bottom_padding" format="dimension" />
+        <attr name="button_background" format="reference" />
+        <attr name="has_activate_state" format="boolean" />
+        <attr name="initial_state" format="enum">
+            <enum name="enabled" value="0" />
+            <enum name="disabled" value="1" />
+        </attr>
+
+        <attr name="btn_back" format="color"/>
+
+
+    </declare-styleable>
 </resources>

@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="yellow">#FFB802</color>
+    <color name="black">#272727</color>
+    <color name="white">#FFFFFF</color>
+    <color name="green">#15C657</color>
+    <color name="green_light">#31AE60</color>
+    <color name="dark_gray">#DBDFE0</color>
+    <color name="binafsha">#7A8DA6</color>
+    <color name="dark_red">#FF3347</color>
+    <color name="blue">#00B2FF</color>
+
     <!--    my colors-->
     <color name="main_blue">#0088CC</color>
     <color name="inactive_gray">#808185</color>
@@ -146,4 +156,91 @@
     <color name="editStokeEdit">#DBDFE0</color>
     <color name="txt_hint_color">#000000</color>
     <color name="alphaLoginText">#99272727</color>
+
+    <!-- driver color-->
+
+    <color name="notification_layout_back">#202B33</color>
+    <color name="stroke_color">#30404d</color>
+    <color name="gray_for_stroke">#DBDFE0</color>
+
+
+    <color name="notification_color">#202B33</color>
+    <color name="app_green_color">#15C657</color>
+    <color name="pink">#D307F6</color>
+    <color name="red_tool_tip">#F30404</color>
+    <color name="color1">#E6FFFFFF</color>
+    <color name="color2">#FFFFFF</color>
+    <color name="nav_bar_color">#33272727</color>
+    <color name="btn_back_color">#5C7080</color>
+    <color name="btn_enable_color">#5C7080</color>
+    <color name="linear_back_color">#30404D</color>
+    <color name="text_black_opacity">#1A272727</color>
+    <color name="line_color_org">#5C7080</color>
+    <color name="switch_off">#212D36</color>
+    <color name="switch_off_red">#FF6060</color>
+    <color name="orange">#FCC400</color>
+    <color name="btn_off">#DBDFE0</color>
+    <color name="foreground_color">#05F9F9F9</color>
+    <color name="foreground_color_map">#66494848</color>
+    <color name="rating_star_yellow">#FFC107</color>
+    <color name="colorBackground">#FF4081</color>
+    <color name="foreground_color_white">#80FFFFFF</color>
+    <color name="background_white">#202B33</color>
+    <color name="linear1_back_tint">#30404d</color>
+    <color name="home_cons_back_white">#202B33</color>
+    <color name="linear_profile_light_color">#30404d</color>
+    <color name="home_back_color">#293742</color>
+    <color name="car_icon_color">#BFCCD6</color>
+    <color name="text_green_color">#15C657</color>
+    <color name="statusBarColor">#293742</color>
+    <color name="home_bottom_sheet_back">#30404d</color>
+    <color name="choose_direction_back_color">#293742</color>
+    <color name="linear_choose_direction">#394B59</color>
+    <color name="choose_dir_bottom_color">#30404d</color>
+    <color name="choose_direction_icon_color">#F5F8FA</color>
+    <color name="plan_back_color">#293742</color>
+    <color name="status_plan_color">#212D36</color>
+    <color name="statusSettingColor">#293742</color>
+    <color name="setting_back_color">#293742</color>
+    <color name="region_city_color">#30404D</color>
+    <color name="status_color">#293742</color>
+    <color name="choose_view_color">#DBDFE0</color>
+    <color name="in_road_color">#293742</color>
+    <color name="from_tashkent_back_color">#293742</color>
+    <color name="from_tashkent_view_color">#F5F8FA</color>
+    <color name="right_icon_color">#F5F8FA</color>
+    <color name="large_rectangle_icon_color">#394B59</color>
+    <color name="btn_exit_line_color">#5C7080</color>
+    <color name="btn_exit_line_text_color">#F5F8FA</color>
+    <color name="btn_enable_color_green">#15C657</color>
+    <color name="new_order_back_color">#293742</color>
+    <color name="back_load_color">#30404D</color>
+    <color name="back_load_stroke_color">#30404D</color>
+    <color name="large_rectangle_stroke_color">#394B59</color>
+    <color name="bottom_sheet_linear_back_color">#394B59</color>
+    <color name="get_passenger_back_color">#293742</color>
+    <color name="map_bottom_sheet_color">#182026</color>
+    <color name="remainder_back_color">#182026</color>
+    <color name="shape_rounded_back_color">#5C7080</color>
+    <color name="connect_linear_back_color">#FFFFFF</color>
+    <color name="finish_back_color">#293742</color>
+    <color name="go_back_color">#293742</color>
+    <color name="finish_btn_back_color">#30404D</color>
+    <color name="circle_icon_stroke_color">#C5C8C9</color>
+    <color name="finish_dialog_back_color">#30404D</color>
+    <color name="finish_btn_color">#5C7080</color>
+    <color name="about_travel_back_color">#293742</color>
+    <color name="back_come_color">#182026</color>
+    <color name="from_you_color">#182026</color>
+    <color name="foreground_day_night_color">#66000000</color>
+    <color name="economic_back_color">#293742</color>
+    <color name="driver_connect_back_color">#182026</color>
+    <color name="all_price_back_color">#182026</color>
+    <color name="rating_back_color">#182026</color>
+
+
+    <color name="main_back_color">#202B33</color>
+
+    <color name="txt_color_secondary">#DBDFE0</color>
+    <color name="view_back_color">#4D272727</color>
 </resources>

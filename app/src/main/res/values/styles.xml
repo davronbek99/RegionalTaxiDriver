@@ -374,5 +374,28 @@
         <item name="maxLines">2</item>
     </style>
 
-    <color name="green">#15C657</color>
+    <style name="TextStyleBold70018" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/txt_color</item>
+        <item name="fontFamily">@font/inter_semi_bold</item>
+        <item name="android:textSize">@dimen/text_size_18sp</item>
+    </style>
+
+    <style name="TextStyleBold60018" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/txt_color</item>
+        <item name="fontFamily">@font/inter_semi_bold</item>
+        <item name="android:textSize">@dimen/text_size_18sp</item>
+    </style>
+
+    <style name="TextStyleRegular40015" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/txt_color</item>
+        <item name="fontFamily">@font/inter_regular</item>
+        <item name="android:textSize">@dimen/text_size_15sp</item>
+    </style>
+
+    <style name="TextStyleGreen40015" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/green</item>
+        <item name="fontFamily">@font/inter_regular</item>
+        <item name="android:textSize">@dimen/text_size_15sp</item>
+    </style>
+
 </resources>
