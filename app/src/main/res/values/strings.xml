@@ -55,4 +55,7 @@
     <string name="fragment_profile_setting">Настройки</string>
     <string name="fragment_profile_first_support">Служба поддержки</string>
     <string name="fragment_profile_first_exit">Выйти из профиля</string>
+    <string name="order_fragment_title">Активные заказы</string>
+    <string name="no_order">No orders</string>
+    <string name="from">Откуда:</string>
 </resources>

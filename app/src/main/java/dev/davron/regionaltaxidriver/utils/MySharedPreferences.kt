@@ -71,4 +71,19 @@ object MySharedPreferences {
         val sharedPreferences = context.getSharedPreferences("user_type", Context.MODE_PRIVATE)
         return sharedPreferences.getString("user_type", "") ?: ""
     }
+
+    @SuppressLint("ApplySharedPref")
+    fun addData(context: Context, token: String) {
+        /** yozish  uchun */
+        val sharedrefrence = context.getSharedPreferences("Token", Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedrefrence.edit()
+        editor.putString("token", token).commit()
+    }
+
+    fun getData(context: Context): String? {
+        val sharedrefrence = context.getSharedPreferences("Token", Context.MODE_PRIVATE)
+        /** uqish uchun */
+        return sharedrefrence.getString("token", "")
+
+    }
 }
