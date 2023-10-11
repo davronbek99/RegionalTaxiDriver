@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registration_nav_graph"
+    app:startDestination="@id/onlineRegistrationFragment">
+
+    <action
+        android:id="@+id/to_transport_photo"
+        app:destination="@id/transportPhotoFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+    <fragment
+        android:id="@+id/transportPhotoFragment"
+        android:name="dev.davron.regionaltaxidriver.fragment.onlineRegistration.photoTransport.TransportPhotoFragment"
+        android:label="fragment_transport_photo"
+        tools:layout="@layout/fragment_transport_photo" />
+
+    <action
+        android:id="@+id/to_driver_license_photo"
+        app:destination="@id/driverLicensePhotoFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+    <fragment
+        android:id="@+id/driverLicensePhotoFragment"
+        android:name="dev.davron.regionaltaxidriver.fragment.onlineRegistration.registerDriverLicense.DriverLicensePhotoFragment"
+        android:label="fragment_driver_license_photo"
+        tools:layout="@layout/fragment_driver_license_photo" />
+
+    <action
+        android:id="@+id/to_register_driver_license"
+        app:destination="@id/registerDriverLicenseFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+    <fragment
+        android:id="@+id/registerDriverLicenseFragment"
+        android:name="dev.davron.regionaltaxidriver.fragment.onlineRegistration.registerDriverLicense.RegisterDriverLicenseFragment"
+        android:label="fragment_register_driver_license"
+        tools:layout="@layout/fragment_register_driver_license" />
+
+    <action
+        android:id="@+id/to_information_passport"
+        app:destination="@id/informationPassportFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+    <fragment
+        android:id="@+id/informationPassportFragment"
+        android:name="dev.davron.regionaltaxidriver.fragment.onlineRegistration.registerPassport.InformationPassportFragment"
+        android:label="fragment_information_passport"
+        tools:layout="@layout/fragment_information_passport" />
+
+    <action
+        android:id="@+id/to_register_passport"
+        app:destination="@id/registerPassportFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+    <fragment
+        android:id="@+id/registerPassportFragment"
+        android:name="dev.davron.regionaltaxidriver.fragment.onlineRegistration.registerPassport.RegisterPassportFragment"
+        android:label="fragment_register_passport"
+        tools:layout="@layout/fragment_register_passport" />
+
+    <action
+        android:id="@+id/to_number_of_transport"
+        app:destination="@id/numberOfTransportFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+    <fragment
+        android:id="@+id/numberOfTransportFragment"
+        android:name="dev.davron.regionaltaxidriver.fragment.onlineRegistration.registerTexPassport.NumberOfTransportFragment"
+        android:label="fragment_number_of_transport"
+        tools:layout="@layout/fragment_number_of_transport" />
+
+    <action
+        android:id="@+id/to_tex_passport_photo"
+        app:destination="@id/texPassportPhotoFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+    <fragment
+        android:id="@+id/texPassportPhotoFragment"
+        android:name="dev.davron.regionaltaxidriver.fragment.onlineRegistration.registerTexPassport.TexPassportPhotoFragment"
+        android:label="fragment_tex_passport_photo"
+        tools:layout="@layout/fragment_tex_passport_photo" />
+
+    <action
+        android:id="@+id/to_manufactured_year"
+        app:destination="@id/manufacturedYearFragmentFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+    <fragment
+        android:id="@+id/manufacturedYearFragmentFragment"
+        android:name="dev.davron.regionaltaxidriver.fragment.onlineRegistration.registerTransport.ManufacturedYearFragmentFragment"
+        android:label="fragment_mana_factured_year_fragment"
+        tools:layout="@layout/fragment_mana_factured_year_fragment" />
+
+    <action
+        android:id="@+id/to_select_transport_color"
+        app:destination="@id/selectTransportColorFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+    <fragment
+        android:id="@+id/selectTransportColorFragment"
+        android:name="dev.davron.regionaltaxidriver.fragment.onlineRegistration.registerTransport.SelectTransportColorFragment"
+        android:label="fragment_select_transport_color"
+        tools:layout="@layout/fragment_select_transport_color" />
+
+    <action
+        android:id="@+id/to_select_transport_manufactured"
+        app:destination="@id/selectTransportManufacturedFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+    <fragment
+        android:id="@+id/selectTransportManufacturedFragment"
+        android:name="dev.davron.regionaltaxidriver.fragment.onlineRegistration.registerTransport.SelectTransportManufacturedFragment"
+        android:label="fragment_select_transport_manufactured"
+        tools:layout="@layout/fragment_select_transport_manufactured" />
+
+    <action
+        android:id="@+id/to_select_transport_model"
+        app:destination="@id/selectTransportModelFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+    <fragment
+        android:id="@+id/selectTransportModelFragment"
+        android:name="dev.davron.regionaltaxidriver.fragment.onlineRegistration.registerTransport.SelectTransportModelFragment"
+        android:label="fragment_select_transport_model"
+        tools:layout="@layout/fragment_select_transport_model" />
+
+    <action
+        android:id="@+id/to_registration_main"
+        app:destination="@id/registrationMainFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+    <fragment
+        android:id="@+id/registrationMainFragment"
+        android:name="dev.davron.regionaltaxidriver.fragment.onlineRegistration.main.RegistrationMainFragment"
+        android:label="fragment_registration_main"
+        tools:layout="@layout/fragment_registration_main" />
+    <fragment
+        android:id="@+id/onlineRegistrationFragment"
+        android:name="dev.davron.regionaltaxidriver.fragment.onlineRegistration.main.OnlineRegistrationFragment"
+        android:label="fragment_online_registration"
+        tools:layout="@layout/fragment_online_registration" />
+</navigation>

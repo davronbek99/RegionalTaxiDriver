@@ -2,11 +2,15 @@ package dev.davron.regionaltaxidriver.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.net.ConnectivityManager
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import androidx.annotation.ColorInt
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import com.google.android.material.transition.platform.MaterialSharedAxis
 import dev.davron.regionaltaxidriver.R
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -29,6 +33,13 @@ fun FragmentActivity.statusBarColor(
     } else {
         dec.systemUiVisibility = 0
     }
+}
+
+fun View.showKeyboard() {
+    this.requestFocus()
+    val inputMethodManager =
+        context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputMethodManager.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
 }
 
 @SuppressLint("SimpleDateFormat")
@@ -62,4 +73,34 @@ fun Int.toMonthName(context: Context): String {
             ""
         }
     }
+}
+
+fun Fragment.setAnimations() {
+    val exitTransation = MaterialSharedAxis(MaterialSharedAxis.X, /* forward= */ true)
+    exitTransation.duration = 500
+
+    exitTransition = exitTransation
+    enterTransition = exitTransition
+
+
+    val reenterTransation = MaterialSharedAxis(MaterialSharedAxis.X, false)
+    reenterTransation.duration = 500
+
+    reenterTransition = reenterTransation
+    returnTransition = reenterTransition
+}
+
+
+fun isOnline(context: Context): Boolean {
+    val connectionManager =
+        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+    val activityNetworkInfo = connectionManager.activeNetworkInfo
+
+    return activityNetworkInfo != null && activityNetworkInfo.isConnected
+}
+
+
+fun String.editLikePhoneNumber(): String {
+    return this.replace("+", "").replace(" ", "").replace("(", "").replace(")", "").replace("-", "")
 }

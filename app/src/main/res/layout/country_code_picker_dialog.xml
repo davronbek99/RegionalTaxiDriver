@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/close_button"
+        android:layout_width="@dimen/dimen_40dp"
+        android:layout_height="@dimen/dimen_40dp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="@dimen/dimen_16dp"
+        android:layout_marginBottom="@dimen/dimen_16dp"
+        app:cardCornerRadius="@dimen/dimen_26dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@drawable/ic_x_button"
+            android:tint="@color/brand_main_primary" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_12_back"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/dimen_20dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/txt_display_semibold_20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_18dp"
+            android:text="@string/select_country"
+            android:textColor="@color/brand_main_primary" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginBottom="@dimen/dimen_26dp"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_select_country_view_rv" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

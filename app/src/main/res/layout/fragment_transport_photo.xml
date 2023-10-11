@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/main_bg_color"
+    android:layout_height="match_parent"
+    tools:context=".fragment.onlineRegistration.photoTransport.TransportPhotoFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:paddingHorizontal="@dimen/dimen_16dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_x_button"
+            android:tint="@color/brand_main_primary" />
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginBottom="@dimen/dimen_90dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/dimen_18dp"
+        android:paddingTop="@dimen/dimen_10dp">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/txt_display_medium_26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/photo_transport"
+                    android:textColor="@color/brand_main_primary" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/txt_display_regular_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:text="@string/safe_ride_photo_des"
+                    android:textColor="@color/seattle_100" />
+
+                <!--        //photos containers-->
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_32dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/front_side"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_130dp"
+                        android:layout_marginEnd="@dimen/dimen_5dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="@dimen/dimen_16dp"
+                        app:cardElevation="0dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:animateLayoutChanges="true">
+
+                            <!-- ready page -->
+                            <FrameLayout
+                                android:id="@+id/ready_front_side"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:visibility="visible">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/image_front_side"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="center" />
+
+                                <include
+                                    android:id="@+id/progress_front_side"
+                                    layout="@layout/file_upload_progress_bar"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/cancel_image_front_side"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:paddingStart="@dimen/dimen_18dp"
+                                    android:paddingEnd="0dp"
+                                    android:paddingBottom="@dimen/dimen_18dp"
+                                    android:src="@drawable/ic_cancel_button" />
+
+                            </FrameLayout>
+
+
+                            <!-- first position of card-->
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/first_position_front_side"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/brand_main_wild_sand"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_camera" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/txt_display_medium_13"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dimen_5dp"
+                                    android:text="@string/front_side_auto"
+                                    android:textColor="@color/brand_main_primary" />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </FrameLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/left_side"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_130dp"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        app:cardCornerRadius="@dimen/dimen_16dp"
+                        app:cardElevation="0dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:animateLayoutChanges="true">
+
+
+                            <FrameLayout
+                                android:id="@+id/ready_left_side"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="visible">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/image_left_side"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="center" />
+
+                                <include
+                                    android:id="@+id/progress_left_side"
+                                    layout="@layout/file_upload_progress_bar"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/cancel_image_left_side"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:paddingStart="@dimen/dimen_18dp"
+                                    android:paddingEnd="0dp"
+                                    android:paddingBottom="@dimen/dimen_18dp"
+                                    android:src="@drawable/ic_cancel_button" />
+
+
+                            </FrameLayout>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/first_position_left_side"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/brand_main_wild_sand"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_camera" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/txt_display_medium_13"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="@dimen/dimen_13dp"
+                                    android:layout_marginTop="@dimen/dimen_5dp"
+                                    android:gravity="center"
+                                    android:text="@string/left_side_auto"
+                                    android:textColor="@color/brand_main_primary" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        </FrameLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/back_side"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_130dp"
+                        android:layout_marginEnd="@dimen/dimen_5dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="@dimen/dimen_16dp"
+                        app:cardElevation="0dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:animateLayoutChanges="true">
+
+                            <!-- ready page -->
+                            <FrameLayout
+                                android:id="@+id/ready_back_side"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:visibility="visible">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/image_back_side"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="center" />
+
+                                <include
+                                    android:id="@+id/progress_back_side"
+                                    layout="@layout/file_upload_progress_bar"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/cancel_image_back_side"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:paddingStart="@dimen/dimen_18dp"
+                                    android:paddingEnd="0dp"
+                                    android:paddingBottom="@dimen/dimen_18dp"
+                                    android:src="@drawable/ic_cancel_button" />
+
+                            </FrameLayout>
+
+
+                            <!-- first position of card-->
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/first_position_back_side"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/brand_main_wild_sand"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_camera" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/txt_display_medium_13"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dimen_5dp"
+                                    android:text="@string/back_side_auto"
+                                    android:textColor="@color/brand_main_primary" />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </FrameLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:visibility="gone">
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/right_side"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_130dp"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="@dimen/dimen_16dp"
+                        app:cardElevation="0dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:animateLayoutChanges="true">
+
+
+                            <FrameLayout
+                                android:id="@+id/ready_right_side"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="visible">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/image_right_side"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="center" />
+
+                                <include
+                                    android:id="@+id/progress_right_side"
+                                    layout="@layout/file_upload_progress_bar"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/cancel_image_right_side"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:paddingStart="@dimen/dimen_18dp"
+                                    android:paddingEnd="0dp"
+                                    android:paddingBottom="@dimen/dimen_18dp"
+                                    android:src="@drawable/ic_cancel_button" />
+
+
+                            </FrameLayout>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/first_position_right_side"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/brand_main_wild_sand"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_camera" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/txt_display_medium_13"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="@dimen/dimen_13dp"
+                                    android:layout_marginTop="@dimen/dimen_5dp"
+                                    android:gravity="center"
+                                    android:text="@string/right_auto"
+                                    android:textColor="@color/brand_main_primary" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        </FrameLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:visibility="gone">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/first_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_130dp"
+                        android:layout_marginEnd="@dimen/dimen_5dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="@dimen/dimen_16dp"
+                        app:cardElevation="0dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:animateLayoutChanges="true">
+
+                            <!-- ready page -->
+                            <FrameLayout
+                                android:id="@+id/ready_first_line"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:visibility="visible">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/image_first_line"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="center" />
+
+                                <include
+                                    android:id="@+id/progress_first_line"
+                                    layout="@layout/file_upload_progress_bar"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/cancel_image_first_line"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:paddingStart="@dimen/dimen_18dp"
+                                    android:paddingEnd="0dp"
+                                    android:paddingBottom="@dimen/dimen_18dp"
+                                    android:src="@drawable/ic_cancel_button" />
+
+                            </FrameLayout>
+
+
+                            <!-- first position of card-->
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/first_position_first_line"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/brand_main_wild_sand"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_camera" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/txt_display_medium_13"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dimen_5dp"
+                                    android:text="@string/first_line_salon"
+                                    android:textColor="@color/brand_main_primary" />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </FrameLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/back_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_130dp"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="@dimen/dimen_16dp"
+                        app:cardElevation="0dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:animateLayoutChanges="true">
+
+
+                            <FrameLayout
+                                android:id="@+id/ready_back_line"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="visible">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/image_back_line"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="center" />
+
+                                <include
+                                    android:id="@+id/progress_back_line"
+                                    layout="@layout/file_upload_progress_bar"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/cancel_image_back_line"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:paddingStart="@dimen/dimen_18dp"
+                                    android:paddingEnd="0dp"
+                                    android:paddingBottom="@dimen/dimen_18dp"
+                                    android:src="@drawable/ic_cancel_button" />
+
+
+                            </FrameLayout>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/first_position_back_line"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/brand_main_wild_sand"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_camera" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/txt_display_medium_13"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="@dimen/dimen_13dp"
+                                    android:layout_marginTop="@dimen/dimen_5dp"
+                                    android:gravity="center"
+                                    android:text="@string/back_line_salon"
+                                    android:textColor="@color/brand_main_primary" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        </FrameLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:visibility="gone">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/baggage"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_130dp"
+                        android:layout_marginEnd="@dimen/dimen_5dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="@dimen/dimen_16dp"
+                        app:cardElevation="0dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:animateLayoutChanges="true">
+
+                            <!-- ready page -->
+                            <FrameLayout
+                                android:id="@+id/ready_baggage"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:visibility="visible">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/image_baggage"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="center" />
+
+                                <include
+                                    android:id="@+id/progress_baggage"
+                                    layout="@layout/file_upload_progress_bar"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/cancel_image_baggage"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:paddingStart="@dimen/dimen_18dp"
+                                    android:paddingEnd="0dp"
+                                    android:paddingBottom="@dimen/dimen_18dp"
+                                    android:src="@drawable/ic_cancel_button" />
+
+                            </FrameLayout>
+
+
+                            <!-- first position of card-->
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/first_position_baggage"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/brand_main_wild_sand"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_camera" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/txt_display_medium_13"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dimen_5dp"
+                                    android:text="@string/baggage"
+                                    android:textColor="@color/brand_main_primary" />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </FrameLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_130dp"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:layout_weight="1"
+                        android:visibility="invisible"
+                        app:cardCornerRadius="@dimen/dimen_16dp"
+                        app:cardElevation="0dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:animateLayoutChanges="true">
+
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="visible">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="center" />
+
+                                <include
+                                    layout="@layout/file_upload_progress_bar"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:paddingStart="@dimen/dimen_18dp"
+                                    android:paddingEnd="0dp"
+                                    android:paddingBottom="@dimen/dimen_18dp"
+                                    android:src="@drawable/ic_cancel_button" />
+
+
+                            </FrameLayout>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/brand_main_wild_sand"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_camera" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/txt_display_medium_13"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="@dimen/dimen_13dp"
+                                    android:layout_marginTop="@dimen/dimen_5dp"
+                                    android:gravity="center"
+                                    android:text="@string/back_side"
+                                    android:textColor="@color/brand_main_primary" />
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        </FrameLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ready_button"
+        style="@style/main_button_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_56dp"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="@dimen/dimen_18dp"
+        android:layout_marginBottom="@dimen/dimen_26dp"
+        android:enabled="false"
+        android:text="@string/ready" />
+
+</FrameLayout>

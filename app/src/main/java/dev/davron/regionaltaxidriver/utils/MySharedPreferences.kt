@@ -86,4 +86,15 @@ object MySharedPreferences {
         return sharedrefrence.getString("token", "")
 
     }
+
+    fun setStatus(context: Context, status: String) {
+        val shared = context.getSharedPreferences("status", Context.MODE_PRIVATE)
+        val editor = shared.edit()
+        editor.putString("status", status).commit()
+    }
+
+    fun getStatus(context: Context): String {
+        val sharedPreferences = context.getSharedPreferences("status", Context.MODE_PRIVATE)
+        return sharedPreferences.getString("status", "new") ?: "new"
+    }
 }

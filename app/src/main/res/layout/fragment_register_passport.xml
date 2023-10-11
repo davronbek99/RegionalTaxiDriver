@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg_color"
+    tools:context=".fragment.onlineRegistration.registerPassport.RegisterPassportFragment">
+
+    <!--    toolbar-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:paddingHorizontal="@dimen/dimen_16dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/close_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_x_button"
+            android:tint="@color/brand_main_primary" />
+    </RelativeLayout>
+
+    <!--    main part-->
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/dimen_18dp"
+        android:paddingTop="@dimen/dimen_10dp">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/txt_display_medium_26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_document"
+            android:textColor="@color/brand_main_primary" />
+
+
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+            android:id="@+id/gender_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_32dp"
+            app:justifyContent="flex_start"> <!-- this attribute is from the underlying FlexboxLayout -->
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/passport_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:toggle_paddingHorizontal="@dimen/dimen_10dp"
+                app:toggle_paddingVertical="@dimen/dimen_10dp"
+                app:toggle_selectedBackgroundColor="@color/main_blue"
+                app:toggle_text="@string/passport"
+                app:toggle_textColor="@color/black"
+                app:toggle_textSize="@dimen/dimen_18dp" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/id_card_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:toggle_paddingHorizontal="@dimen/dimen_10dp"
+                app:toggle_paddingVertical="@dimen/dimen_10dp"
+                app:toggle_selectedBackgroundColor="@color/main_blue"
+                app:toggle_text="@string/id_card"
+                app:toggle_textColor="@color/black"
+                app:toggle_textSize="@dimen/dimen_18dp" />
+        </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/next_button"
+        style="@style/main_button_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_56dp"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="@dimen/dimen_18dp"
+        android:layout_marginBottom="@dimen/dimen_16dp"
+        android:enabled="false"
+        android:text="@string/next" />
+</FrameLayout>

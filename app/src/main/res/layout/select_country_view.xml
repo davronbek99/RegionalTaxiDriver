@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/txt_display_semibold_13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/ic_info"
+        android:drawablePadding="@dimen/dimen_10dp"
+        android:text="@string/country"
+        android:textColor="@color/seattle_100" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/country_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_8dp"
+        android:clickable="false"
+        android:drawableStart="@drawable/ic_uzbekistan_flag"
+        android:drawableEnd="@drawable/ic_arrow_bottom"
+        android:drawablePadding="@dimen/dimen_10dp"
+        android:focusable="false"
+        android:text="Узбекистан"
+        android:textColor="@color/brand_main_primary"
+        android:textSize="16sp" />
+
+    <View
+        android:id="@+id/seri_number_et_bottomline"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1dp"
+        android:layout_marginTop="@dimen/dimen_8dp"
+        android:layout_weight="1"
+        android:background="@drawable/edit_text_underline" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

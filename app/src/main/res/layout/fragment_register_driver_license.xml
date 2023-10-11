@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/main_bg_color"
+    tools:context=".fragment.onlineRegistration.registerDriverLicense.RegisterDriverLicenseFragment">
+
+    <!--    toolbar-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:paddingHorizontal="@dimen/dimen_16dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/close_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_x_button"
+            android:tint="@color/brand_main_primary" />
+
+    </RelativeLayout>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/dimen_18dp"
+        android:paddingTop="@dimen/dimen_10dp">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/txt_display_medium_26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/driver_license"
+            android:textColor="@color/brand_main_primary" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/txt_display_regular_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:text="@string/safe_ride_photo_des"
+            android:textColor="@color/seattle_100" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/txt_display_semibold_13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_32dp"
+            android:drawableEnd="@drawable/ic_info"
+            android:drawablePadding="@dimen/dimen_10dp"
+            android:text="@string/series_number"
+            android:textColor="@color/seattle_100" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/seri_number_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:background="@null"
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:fontFamily="@font/sfpro_display_regular"
+            android:hint="AA 1234567"
+            android:inputType="textVisiblePassword"
+            android:textAllCaps="true"
+            android:textColor="@color/brand_main_primary"
+            android:textCursorDrawable="@drawable/cursor"
+            android:textSize="@dimen/dimen_18dp" />
+
+        <View
+            android:id="@+id/seri_number_et_bottomline"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_underline" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/txt_display_semibold_13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_40dp"
+            android:drawableEnd="@drawable/ic_info"
+            android:drawablePadding="@dimen/dimen_10dp"
+            android:text="Дата истечения срока действия"
+            android:textColor="@color/seattle_100" />
+
+        <com.santalu.maskara.widget.MaskEditText
+            android:id="@+id/valid_date_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:background="@null"
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:fontFamily="@font/sfpro_display_regular"
+            android:hint="@string/day_month_year"
+            android:inputType="number"
+            android:textAllCaps="true"
+            android:textColor="@color/brand_main_primary"
+            android:textCursorDrawable="@drawable/cursor"
+            android:textSize="@dimen/dimen_18dp"
+            app:mask="__/__/____" />
+
+        <View
+            android:id="@+id/valid_date_et_bottom_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_underline" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/warning_date_tv"
+            style="@style/txt_display_medium_13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:drawableStart="@drawable/ic_warning"
+            android:drawablePadding="@dimen/dimen_10dp"
+            android:text="@string/wrong_date"
+            android:textColor="@color/moscow_100"
+            android:visibility="gone" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/next_button"
+        style="@style/main_button_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_56dp"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="@dimen/dimen_18dp"
+        android:layout_marginBottom="@dimen/dimen_26dp"
+        android:enabled="false"
+        android:text="@string/next">
+
+
+    </androidx.appcompat.widget.AppCompatButton>
+</FrameLayout>

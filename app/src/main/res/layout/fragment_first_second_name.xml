@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragment.login.registration.FirstSecondNameFragment">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--        toolbar-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:src="@drawable/ic_arrow_left"
+                android:tint="@color/brand_main_primary" />
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/dimen_16dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sfpro_display_medium"
+                android:text="@string/tv_enter_requested"
+                android:textColor="@color/brand_main_primary"
+                android:textSize="24sp" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_32dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_first_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_contact" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_8dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/et_hint_color"
+                    android:fontFamily="@font/nunito_sans_10pt_regular"
+                    android:hint="@string/tv_first_name"
+                    android:imeOptions="actionNext"
+                    android:maxLength="32"
+                    android:maxLines="1"
+                    android:textColor="@color/txt_color"
+                    android:textColorHint="@color/hint_color_50_per"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_32dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_contact" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_8dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/et_hint_color"
+                    android:fontFamily="@font/nunito_sans_10pt_regular"
+                    android:hint="@string/tv_last_name"
+                    android:imeOptions="actionDone"
+                    android:maxLength="32"
+                    android:maxLines="1"
+                    android:textColor="@color/txt_color"
+                    android:textColorHint="@color/hint_color_50_per"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linear_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_32dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/dimen_4dp"
+                    android:src="@drawable/icon_calendar" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/dimen_12dp"
+                    tools:ignore="RtlSymmetry">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_sans_7pt_regular"
+                        android:text="@string/tv_data_birth"
+                        android:textColor="@color/tv_date_of_birthday_color"
+                        android:textSize="12sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_sans_7pt_regular"
+                        android:paddingTop="@dimen/dimen_4dp"
+                        android:text="18.06.2008"
+                        android:textColor="@color/birthday_color"
+                        android:textSize="16sp"
+                        tools:ignore="HardcodedText" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+                        android:layout_marginTop="@dimen/dimen_8dp"
+                        android:layout_marginEnd="@dimen/dimen_16dp"
+                        android:background="@color/birthday_view_color"
+                        android:visibility="visible" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_age_old"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="@dimen/dimen_4dp"
+                        android:layout_marginEnd="@dimen/dimen_16dp"
+                        android:text="@string/tv_you_are_not_old_enough_to_use_the_program"
+                        android:textColor="@color/color_addition_danger"
+                        android:textSize="14sp"
+                        android:visibility="invisible" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_48dp"
+                android:layout_marginHorizontal="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_24dp"
+                android:layout_marginBottom="@dimen/dimen_64dp"
+                android:background="@drawable/tab_layout_fg"
+                app:tabBackground="@drawable/tab_selector_profile_edit"
+                app:tabIndicator="@drawable/back_fragments"
+                app:tabRippleColor="@color/tab_ripple_color"
+                app:tabSelectedTextColor="@color/tab_selected_color"
+                app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+                app:tabTextColor="@color/tab_text_color" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signIn"
+            style="@style/btnGreen"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_size"
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="@dimen/margin_padding_16dp"
+            android:layout_marginBottom="@dimen/margin_padding_36dp"
+            android:letterSpacing="-0.005"
+            android:text="@string/tv_sign_in"
+            android:textSize="@dimen/text_size_16sp"
+            tools:ignore="UnusedAttribute" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</FrameLayout>

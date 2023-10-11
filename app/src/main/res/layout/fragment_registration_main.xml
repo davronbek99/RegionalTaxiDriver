@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg_color"
+    tools:context=".fragment.onlineRegistration.main.RegistrationMainFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/brand_main_wild_sand">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--            toolbar -->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/main_blue"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:paddingStart="@dimen/dimen_13dp"
+                    android:paddingEnd="@dimen/dimen_18dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/back_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_arrow_left"
+                        android:tint="@color/white" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/txt_display_semibold_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:drawableStart="@drawable/ic_video_lesson"
+                        android:drawablePadding="@dimen/dimen_10dp"
+                        android:text="Видеоинструкция"
+                        android:textColor="@color/sochi_30" />
+
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/txt_display_bold_22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_18dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:text="@string/online_registration"
+                    android:textColor="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/txt_display_regular_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_18dp"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:layout_marginBottom="@dimen/dimen_32dp"
+                    android:text="@string/we_need_this_information_to_register"
+                    android:textColor="@color/seattle_01" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <!--            main part registration-->
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/dimen_130dp">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/brand_main_wild_sand"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/dimen_18dp"
+                    android:paddingVertical="@dimen/dimen_10dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_driver_license" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/txt_display_semibold_13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16dp"
+                        android:text="@string/license"
+                        android:textColor="@color/seattle_100" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/passport_id_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/white_with_ripple"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/dimen_18dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/txt_display_regular_15"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="@string/passport_or_id_card"
+                        android:textColor="@color/brand_main_primary" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/passport_done"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:src="@drawable/ic_done_mark"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:paddingVertical="@dimen/dimen_20dp"
+                        android:src="@drawable/ic_arrow_right_" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/error_tv_passport"
+                    style="@style/txt_display_regular_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingHorizontal="@dimen/dimen_18dp"
+                    android:paddingBottom="@dimen/dimen_18dp"
+                    android:text="Error message description"
+                    android:textColor="@color/seattle_100"
+                    android:textStyle="italic"
+                    android:visibility="gone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_marginHorizontal="@dimen/dimen_18dp"
+                    android:background="@color/brand_main_wild_sand" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/driver_license_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/white_with_ripple"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/dimen_18dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/txt_display_regular_15"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="@string/driver_license"
+                        android:textColor="@color/brand_main_primary" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/driver_license_done"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:src="@drawable/ic_done_mark"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:paddingVertical="@dimen/dimen_20dp"
+                        android:src="@drawable/ic_arrow_right_" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/error_tv_driver_license"
+                    style="@style/txt_display_regular_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingHorizontal="@dimen/dimen_18dp"
+                    android:paddingBottom="@dimen/dimen_18dp"
+                    android:text="Error message description"
+                    android:textColor="@color/seattle_100"
+                    android:textStyle="italic"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/brand_main_wild_sand"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/dimen_18dp"
+                    android:paddingVertical="@dimen/dimen_10dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_car" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/txt_display_semibold_13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_16dp"
+                        android:text="@string/about_car"
+                        android:textColor="@color/seattle_100" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/select_transport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/white_with_ripple"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/dimen_18dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/car_text_tv"
+                        style="@style/txt_display_regular_15"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="@string/select_transport"
+                        android:textColor="@color/brand_main_primary" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/transport_selection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:src="@drawable/ic_done_mark"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:paddingVertical="@dimen/dimen_20dp"
+                        android:src="@drawable/ic_arrow_right_" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/error_tv_transport"
+                    style="@style/txt_display_regular_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingHorizontal="@dimen/dimen_18dp"
+                    android:paddingBottom="@dimen/dimen_18dp"
+                    android:text="Error message description"
+                    android:textColor="@color/seattle_100"
+                    android:textStyle="italic"
+                    android:visibility="gone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_marginHorizontal="@dimen/dimen_18dp"
+                    android:background="@color/brand_main_wild_sand" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/register_tex_passport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/white_with_ripple"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/dimen_18dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/txt_display_regular_15"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="@string/tex_passport"
+                        android:textColor="@color/brand_main_primary" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/texpassport_done"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:src="@drawable/ic_done_mark"
+                        android:visibility="gone" />
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:paddingVertical="@dimen/dimen_20dp"
+                        android:src="@drawable/ic_arrow_right_" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/error_tv_texpassport"
+                    style="@style/txt_display_regular_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingHorizontal="@dimen/dimen_18dp"
+                    android:paddingBottom="@dimen/dimen_18dp"
+                    android:text="Error message description"
+                    android:textColor="@color/seattle_100"
+                    android:textStyle="italic"
+                    android:visibility="gone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_marginHorizontal="@dimen/dimen_18dp"
+                    android:background="@color/brand_main_wild_sand" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/photo_transport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/white_with_ripple"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/dimen_18dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/txt_display_regular_15"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="@string/photo_transport"
+                        android:textColor="@color/brand_main_primary" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/photo_transport_done"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:src="@drawable/ic_done_mark"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:paddingVertical="@dimen/dimen_20dp"
+                        android:src="@drawable/ic_arrow_right_" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/error_tv_car_photo"
+                    style="@style/txt_display_regular_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingHorizontal="@dimen/dimen_18dp"
+                    android:paddingBottom="@dimen/dimen_18dp"
+                    android:text="Error message description"
+                    android:textColor="@color/seattle_100"
+                    android:textStyle="italic"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/des_to_not_edit_data_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_18dp"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:text="@string/you_cant_edit"
+                    android:visibility="gone" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/send_for_review_button"
+        style="@style/main_button_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_64dp"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="@dimen/dimen_18dp"
+        android:layout_marginBottom="@dimen/dimen_26dp"
+        android:enabled="false"
+        android:text="@string/send_for_review" />
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/progress_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_bg_color"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/loading_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/loading_image" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title_progress_tv"
+            style="@style/txt_display_medium_22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_26dp"
+            android:text="@string/successfully_sent"
+            android:textColor="@color/brand_main_primary"
+            android:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/des_progress_tv"
+            style="@style/txt_display_regular_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_18dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/dimen_26dp"
+            android:text="@string/sending_data"
+            android:textColor="@color/seattle_120" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</FrameLayout>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     tools:context=".fragment.login.PhoneFragment">
 
@@ -92,13 +92,11 @@
 
         <com.santalu.maskara.widget.MaskEditText
             android:id="@+id/txt_phone"
-            app:mask="+___ (__) ___ __ __"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_padding_16dp"
             android:layout_marginTop="@dimen/margin_padding_8dp"
             android:background="@drawable/ic_item_container_border_edit_style"
-
             android:drawableEnd="@drawable/ic_phone"
             android:fontFamily="@font/inter_regular"
             android:hint="@string/enterSomething"
@@ -107,8 +105,9 @@
             android:paddingStart="@dimen/margin_padding_24dp"
             android:paddingEnd="@dimen/margin_padding_24dp"
             android:textColor="@color/txt_color"
-            android:textColorHint="@color/txt_hint_color"
+            android:textColorHint="@color/hint_color_50_per"
             android:textSize="@dimen/text_size_14sp"
+            app:mask="+___ (__) ___ __ __"
             tools:ignore="UnusedAttribute" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -156,11 +155,29 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loader"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/loader"
         android:layout_width="@dimen/loader"
         android:layout_height="@dimen/loader"
         android:layout_gravity="center"
-        android:visibility="gone" />
+        android:visibility="gone"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loader" />
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#66FFFFFF"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/main_blue" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </FrameLayout>

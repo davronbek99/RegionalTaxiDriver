@@ -57,6 +57,7 @@
     <dimen name="dimen_19dp">19dp</dimen>
     <dimen name="dimen_20dp">20dp</dimen>
     <dimen name="dimen_24dp">24dp</dimen>
+    <dimen name="dimen_26dp">26dp</dimen>
     <dimen name="dimen_28dp">28dp</dimen>
     <dimen name="dimen_30dp">30dp</dimen>
     <dimen name="switch_radius">24dp</dimen>
@@ -65,6 +66,7 @@
     <dimen name="dimen_36dp">36dp</dimen>
     <dimen name="dimen_40dp">40dp</dimen>
     <dimen name="dimen_48dp">48dp</dimen>
+    <dimen name="dimen_52dp">52dp</dimen>
     <dimen name="dimen_56dp">56dp</dimen>
     <dimen name="dimen_64dp">64dp</dimen>
     <dimen name="dimen_68dp">68dp</dimen>
@@ -76,6 +78,7 @@
     <dimen name="dimen_104dp">104dp</dimen>
     <dimen name="dimen_120dp">120dp</dimen>
     <dimen name="dimen_128dp">128dp</dimen>
+    <dimen name="dimen_130dp">130dp</dimen>
     <dimen name="dimen_148dp">148dp</dimen>
     <dimen name="dimen_172dp">172dp</dimen>
     <dimen name="dimen_178dp">178dp</dimen>

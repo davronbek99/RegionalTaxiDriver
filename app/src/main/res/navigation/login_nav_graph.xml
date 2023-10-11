@@ -24,4 +24,30 @@
         android:name="dev.davron.regionaltaxidriver.fragment.login.SmsCodeFragment"
         android:label="fragment_sms_code"
         tools:layout="@layout/fragment_sms_code" />
+
+    <action
+        android:id="@+id/to_full_info"
+        app:destination="@id/firstSecondNameFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+    <fragment
+        android:id="@+id/firstSecondNameFragment"
+        android:name="dev.davron.regionaltaxidriver.fragment.login.registration.FirstSecondNameFragment"
+        android:label="fragment_first_second_name"
+        tools:layout="@layout/fragment_first_second_name" />
+
+    <action
+        android:id="@+id/to_add_profile_photo"
+        app:destination="@id/addProfilePhotoFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+    <fragment
+        android:id="@+id/addProfilePhotoFragment"
+        android:name="dev.davron.regionaltaxidriver.fragment.login.registration.AddProfilePhotoFragment"
+        android:label="fragment_add_profile_photo"
+        tools:layout="@layout/fragment_add_profile_photo" />
 </navigation>

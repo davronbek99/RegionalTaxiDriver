@@ -243,4 +243,27 @@
 
     <color name="txt_color_secondary">#DBDFE0</color>
     <color name="view_back_color">#4D272727</color>
+    <color name="et_hint_color">#545454</color>
+    <color name="hint_color_50_per">#8A8C92</color>
+    <color name="tv_date_of_birthday_color">#8A8C92</color>
+    <color name="birthday_color">#FFFFFF</color>
+    <color name="birthday_view_color">#8A8C92</color>
+    <color name="color_addition_danger">#E90008</color>
+    <color name="tab_text_color">#8A8C92</color>
+    <color name="tab_layout_fg_color">#0C121E</color>
+    <color name="home_tab_layout_fg_color">#0C121E</color>
+    <color name="home_tab_layout_fg_profile_edit_color">#0C121E</color>
+    <color name="tab_layout_selected_color">#2196F3</color>
+    <color name="home_tab_layout_fg_req_information_color">#0C121E</color>
+    <color name="end_color">#172031</color>
+    <color name="center_color">#172031</color>
+    <color name="start_color">#323947</color>
+    <color name="tab_ripple_color">#0C121E</color>
+    <color name="tab_selected_color">#FFFFFF</color>
+    <color name="code_number_back_color">#2B3548</color>
+    <color name="code_number_border_color">#3692FF</color>
+    <color name="code_tv_number_color">#FFFFFF</color>
+    <color name="code_no_number_back_color">#2B3548</color>
+    <color name="code_number_red_back_color">#2B3548</color>
+    <color name="code_number_stroke_red">#E90008</color>
 </resources>

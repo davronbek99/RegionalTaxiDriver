@@ -1,5 +1,9 @@
 package dev.davron.regionaltaxidriver
 
+import android.annotation.SuppressLint
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
 import android.content.IntentFilter
 import android.content.res.Configuration
 import android.net.ConnectivityManager
@@ -12,15 +16,23 @@ import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI.setupWithNavController
+import dagger.hilt.android.AndroidEntryPoint
 import dev.davron.regionaltaxidriver.databinding.ActivityMainBinding
+import dev.davron.regionaltaxidriver.utils.MySharedPreferences
 import dev.davron.regionaltaxidriver.utils.NetworkState
 import dev.davron.regionaltaxidriver.utils.broadcastReciever.NetworkBroadcastReceiver
+import dev.davron.regionaltaxidriver.utils.getAutoNightMode
+import dev.davron.regionaltaxidriver.utils.statusBarColor
+import java.text.SimpleDateFormat
+import java.util.Date
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), NetworkState {
 
     private lateinit var binding: ActivityMainBinding
@@ -29,12 +41,15 @@ class MainActivity : AppCompatActivity(), NetworkState {
     private lateinit var networkBroadcastReceiver: NetworkBroadcastReceiver
     private val TAG = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
+
+//        setTheme()
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         checkUpdateNewVersion()
-//        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
 
         init()
         setBottomNav()
@@ -74,6 +89,10 @@ class MainActivity : AppCompatActivity(), NetworkState {
 
     private fun init() {
 
+//        FirebaseApp.initializeApp(this)
+//        FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true)
+
+
         networkBroadcastReceiver = NetworkBroadcastReceiver(this)
         registerReceiver(
             networkBroadcastReceiver,
@@ -87,7 +106,7 @@ class MainActivity : AppCompatActivity(), NetworkState {
     }
 
     private fun setUpUI() {
-
+//        changeStatusBarColor()
     }
 
     private var isFirstEntering: Boolean = true
@@ -133,4 +152,77 @@ class MainActivity : AppCompatActivity(), NetworkState {
             baseContext.resources.updateConfiguration(configuration, metrics)
         }
     }
+
+    private fun setTheme() {
+        when (MySharedPreferences.getNightMode(this)) {
+            "day" -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+
+            "night" -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }
+
+            "auto" -> {
+                setListeners()
+
+                when (getAutoNightMode()) {
+                    "day" -> {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                    }
+
+                    "night" -> {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                    }
+                }
+            }
+        }
+        changeStatusBarColor()
+    }
+
+    private fun changeStatusBarColor() {
+
+        var nightMode = MySharedPreferences.getNightMode(this)
+
+        if (nightMode == "auto") nightMode = getAutoNightMode()
+
+        statusBarColor(
+            ResourcesCompat.getColor(resources, R.color.main_status_color, theme),
+            ResourcesCompat.getColor(resources, R.color.main_status_color, theme),
+            nightMode != "night"
+        )
+    }
+
+    private fun setListeners() {
+        val intentFilter = IntentFilter(Intent.ACTION_TIME_TICK)
+        registerReceiver(timerReceiver, intentFilter)
+    }
+
+    private val timerReceiver = object : BroadcastReceiver() {
+        @SuppressLint("SimpleDateFormat")
+        override fun onReceive(p0: Context?, p1: Intent?) {
+            if (p1 != null) {
+                if (p1.action == Intent.ACTION_TIME_TICK) {
+                    val time = Date()
+                    val dH = SimpleDateFormat("HH")
+                    val dM = SimpleDateFormat("mm")
+                    val hour = dH.format(time).toInt()
+                    val minute = dM.format(time).toInt()
+                    val nightMode = MySharedPreferences.getNightMode(this@MainActivity)
+
+                    if (nightMode == "auto") {
+                        if (hour == 18 || hour == 6) {
+                            if (minute == 0) {
+//                                finishAffinity()
+//                                val intent =
+//                                    Intent(this@MainActivity, MainActivity::class.java)
+//                                startActivity(intent)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }

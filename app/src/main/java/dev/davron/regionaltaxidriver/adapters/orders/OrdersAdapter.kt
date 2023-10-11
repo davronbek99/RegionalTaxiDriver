@@ -10,6 +10,7 @@ import dev.davron.regionaltaxidriver.modelApi.activeOrder.activeTaxiOrder.Conten
 import dev.davron.regionaltaxidriver.utils.MainFun
 import dev.davron.regionaltaxidriver.R
 import dev.davron.regionaltaxidriver.databinding.ItemOrderBinding
+import dev.davron.regionaltaxidriver.utils.OnItemClickListener
 import java.lang.StringBuilder
 
 class OrdersAdapter(

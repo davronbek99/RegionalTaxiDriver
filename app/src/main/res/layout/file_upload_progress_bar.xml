@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/dimen_52dp"
+    android:layout_height="@dimen/dimen_52dp"
+    android:background="@drawable/file_upload_back">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dimen_1dp">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="false"
+            android:indeterminateTint="@color/white"
+            android:max="2000"
+            android:progress="20"
+            app:indicatorColor="@color/white"
+            app:trackCornerRadius="@dimen/dimen_18dp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dimen_40dp"
+            android:layout_height="@dimen/dimen_40dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_close_button_for_progress" />
+
+
+    </FrameLayout>
+
+
+</FrameLayout>

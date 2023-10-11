@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/main_bg_color"
+    tools:context=".fragment.login.registration.AddProfilePhotoFragment">
+
+
+    <!--    main part-->
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--        toolbar-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:src="@drawable/ic_arrow_left"
+                android:tint="@color/brand_main_primary" />
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/dimen_18dp">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ava_image_view"
+                android:layout_width="@dimen/dimen_130dp"
+                android:layout_height="@dimen/dimen_130dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_ava_image" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_32dp"
+                android:fontFamily="@font/sfpro_display_medium"
+                android:text="@string/add_photo_title"
+                android:textColor="@color/brand_main_primary"
+                android:textSize="26sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_13dp"
+                android:fontFamily="@font/sfpro_display_regular"
+                android:text="@string/safe_ride_photo_des"
+                android:textColor="@color/seattle_100"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_13dp"
+                android:fontFamily="@font/sfpro_display_regular"
+                android:text="@string/safe_ride_photo_des_second"
+                android:textColor="@color/seattle_100"
+                android:textSize="14sp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <!--    confirm button-->
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginHorizontal="@dimen/dimen_18dp"
+        android:layout_marginBottom="@dimen/dimen_16dp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/next_button"
+            app:drawableTint="@color/main_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            android:drawableEnd="@drawable/ic_arrow_right"
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:fontFamily="@font/sfpro_display_semibold"
+            android:padding="@dimen/dimen_10dp"
+            android:text="@string/next"
+            android:textColor="@color/main_blue"
+            android:textSize="@dimen/dimen_18dp"
+            android:visibility="gone" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/add_photo_button"
+                style="@style/main_button_style"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_56dp"
+                android:gravity="center"
+                android:text="@string/add_photo" />
+
+            <ProgressBar
+                android:id="@+id/proggress"
+                android:layout_width="@dimen/dimen_40dp"
+                android:layout_height="@dimen/dimen_40dp"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/white"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/skip_button"
+            style="@style/secondary_main_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_56dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:gravity="center"
+            android:text="@string/later" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</FrameLayout>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.onlineRegistration.main.OnlineRegistrationFragment">
+
+    <!--        toolbar-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:paddingHorizontal="@dimen/dimen_18dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/register_greeting_tv"
+            style="@style/txt_display_medium_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Welcome, Abdulaziz"
+            android:textColor="@color/brand_main_on_primary"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/brillient_count_tv_register_city_mode"
+            style="@style/brilliantCountStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/dimen_18dp"
+        android:paddingTop="@dimen/dimen_16dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/dimen_72dp"
+                android:layout_height="@dimen/dimen_72dp"
+                android:src="@drawable/ic_logo_city" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/txt_display_medium_22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:text="@string/city_mode"
+                android:textColor="@color/brand_main_on_primary" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/txt_display_regular_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis enim volutpat augue malesuada bibendum at amet. Rhoncus consectetur lectus tempor aliquet congue orci, gravida laoreet."
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/more_about_city_mode_tv"
+            style="@style/txt_display_semibold_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginBottom="@dimen/dimen_48dp"
+            android:drawableEnd="@drawable/ic_arrow_right"
+            android:drawablePadding="@dimen/dimen_10dp"
+            android:drawableTint="@color/main_blue"
+            android:paddingVertical="@dimen/dimen_5dp"
+            android:text="@string/more_about_city_mode"
+            android:textColor="@color/main_blue" />
+
+        <ProgressBar
+            android:id="@+id/registration_progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/brand_blue_accent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/online_registration_button"
+            style="@style/main_button_style"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_64dp"
+            android:text="@string/online_registration"
+            tools:visibility="gone" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/sended_for_review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sended_review_box"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/dimen_18dp"
+            android:paddingVertical="@dimen/dimen_18dp"
+            tools:visibility="visible">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_bxs_receipt" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/txt_display_semibold_16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_10dp"
+                    android:layout_weight="1"
+                    android:text="@string/online_registration"
+                    android:textColor="@color/brand_main_primary" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/registration_date"
+                    style="@style/txt_display_regular_13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="07 мая"
+                    android:textColor="@color/seattle_100"
+                    android:visibility="gone" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/review_des_tv"
+                style="@style/txt_display_regular_14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:text="Городское такси / Chevrolet Cobalt / Белый / 01A780BA"
+                android:textColor="@color/seattle_100"
+                tools:ignore="HardcodedText" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:layout_marginVertical="@dimen/dimen_10dp"
+                android:background="@color/seattle_10" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/status_titile_tv"
+                    style="@style/txt_display_medium_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/status"
+                    android:textColor="@color/seattle_100" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/status_tv"
+                    style="@style/txt_display_medium_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_5dp"
+                    android:text="ajaj"
+                    android:textAllCaps="true"
+                    android:textColor="@color/seattle_100" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/error_layout_review"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/txt_display_medium_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reason"
+                    android:textColor="@color/seattle_140"
+                    app:textAllCaps="true" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/error_message_tv"
+                    style="@style/txt_display_regular_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/dimen_6dp"
+                    android:text="Error message description"
+                    android:textColor="@color/seattle_140"
+                    android:textStyle="italic"
+                    tools:ignore="HardcodedText" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</FrameLayout>

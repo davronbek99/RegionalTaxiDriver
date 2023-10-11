@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/main_bg_color"
+    app:layoutDescription="@xml/fragment_select_transport_color_scene"
+    tools:context=".fragment.onlineRegistration.registerTransport.SelectTransportColorFragment">
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/dimen_16dp"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:src="@drawable/ic_arrow_left"
+        android:tint="@color/brand_main_primary"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title_tv"
+        style="@style/txt_display_medium_26"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_18dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:gravity="start"
+        android:text="@string/color_transport"
+        android:textColor="@color/brand_main_primary"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_button" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_tv"
+        tools:listitem="@layout/item_car_color_rv" />
+</androidx.constraintlayout.motion.widget.MotionLayout>

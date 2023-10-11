@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/main_bg_color"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/dimen_18dp"
+    android:paddingTop="@dimen/dimen_16dp">
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv"
+            style="@style/txt_display_semibold_16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableStart="@drawable/ic_uzbekistan_flag"
+            android:drawablePadding="@dimen/dimen_8dp"
+            android:text="@string/uzb"
+            android:textColor="@color/brand_main_primary" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/code_tv"
+            style="@style/txt_display_regular_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/dimen_8dp"
+            android:text="+998"
+            android:textColor="@color/seattle_100"
+            android:visibility="gone"
+            tools:visibility="visible"
+            tools:ignore="HardcodedText" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1dp"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:background="@color/brand_main_wild_sand" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

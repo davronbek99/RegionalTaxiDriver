@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint_root"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".fragment.login.SmsCodeFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -51,7 +52,7 @@
             android:textSize="@dimen/text_size_24sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/txt_nomer"
+            android:id="@+id/txt_number"
             android:layout_width="263dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -66,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/margin_padding_36dp">
+            android:layout_marginTop="@dimen/dimen_36dp">
 
             <com.mukesh.OtpView
                 android:id="@+id/otp_view"
@@ -75,17 +76,30 @@
                 android:layout_gravity="center"
                 android:focusableInTouchMode="true"
                 android:inputType="number"
-                android:itemBackground="@drawable/ic_number_icon"
+                android:itemBackground="@drawable/back_edit_stroke"
                 android:longClickable="false"
                 android:textColor="@color/green"
                 android:textIsSelectable="false"
                 android:textSize="27sp"
                 app:OtpHideLineWhenFilled="true"
-                app:OtpItemCount="6"
+                app:OtpItemCount="5"
                 app:OtpLineColor="@color/green"
                 app:OtpState_filled="true"
-                app:OtpViewType="line" />
+                app:OtpViewType="none" />
         </FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/error_tv"
+            style="@style/txt_display_medium_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:drawableStart="@drawable/ic_warning"
+            android:drawablePadding="@dimen/dimen_8dp"
+            android:text="@string/error_occurred"
+            android:textColor="@color/moscow_100"
+            android:visibility="gone" />
 
 
         <View
@@ -94,7 +108,7 @@
             android:layout_weight="1" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/layot_bottom"
+            android:id="@+id/layout_bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -138,13 +152,30 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/loader"
-        android:layout_width="@dimen/loader"
-        android:layout_height="@dimen/loader"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/loader" />
+    <!--    loading layout-->
+    <FrameLayout
+        android:id="@+id/loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/layer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.4"
+            android:background="@color/white"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <ProgressBar
+            android:id="@+id/proggress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/main_blue"
+            android:progressTint="@color/main_blue" />
+
+
+    </FrameLayout>
 </FrameLayout>

@@ -8,6 +8,7 @@ import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.view.animation.Animation
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.res.ResourcesCompat
@@ -36,10 +37,12 @@ class IntroActivity : AppCompatActivity() {
     override fun onCreate(
         savedInstanceState: Bundle?
     ) {
+//        setTheme()
         super.onCreate(savedInstanceState)
         binding = ActivityIntroBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         setUpUI()
 
@@ -172,9 +175,8 @@ class IntroActivity : AppCompatActivity() {
 
             "auto" -> {
                 setListeners()
-                val newNightMode = getAutoNightMode()
 
-                when (newNightMode) {
+                when (getAutoNightMode()) {
                     "day" -> {
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                     }
@@ -189,7 +191,7 @@ class IntroActivity : AppCompatActivity() {
     }
 
     private fun setUpUI() {
-        changeStatusBarColor()
+//        changeStatusBarColor()
     }
 
     private fun changeStatusBarColor() {
