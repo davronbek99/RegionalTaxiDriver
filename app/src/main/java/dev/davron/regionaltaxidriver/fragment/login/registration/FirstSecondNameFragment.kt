@@ -5,15 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayout
+import dagger.hilt.android.AndroidEntryPoint
 import dev.davron.regionaltaxidriver.R
 import dev.davron.regionaltaxidriver.databinding.FragmentFirstSecondNameBinding
+import dev.davron.regionaltaxidriver.models.login.fullName.RequestFullName
 
+@AndroidEntryPoint
 class FirstSecondNameFragment : Fragment() {
 
     private lateinit var binding: FragmentFirstSecondNameBinding
 
+    //    private lateinit var personalInformationViewModel: PersonalInformationViewModel
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,8 +33,10 @@ class FirstSecondNameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         init()
+        setViewModelListeners()
         setTabLayout()
         uiClickListener()
+
     }
 
     private fun setTabLayout() {
@@ -64,11 +71,26 @@ class FirstSecondNameFragment : Fragment() {
 
     private fun uiClickListener() {
         binding.signIn.setOnClickListener {
-            findNavController().navigate(R.id.to_add_profile_photo)
+            val bundle = Bundle()
+            bundle.putSerializable(
+                "requestFullName",
+                RequestFullName(
+                    binding.firstname.text.toString(),
+                    binding.lastname.text.toString(),
+                    binding.dateOfBirth.text.toString(),
+                    ""
+                )
+            )
+            findNavController().navigate(R.id.to_add_profile_photo, bundle)
         }
     }
 
     private fun init() {
+//        personalInformationViewModel =
+//            ViewModelProvider(this)[PersonalInformationViewModel::class.java]
+    }
+
+    private fun setViewModelListeners() {
 
     }
 }

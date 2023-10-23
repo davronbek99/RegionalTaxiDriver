@@ -10,6 +10,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.annotation.ColorInt
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.transition.platform.MaterialSharedAxis
 import dev.davron.regionaltaxidriver.R
 import java.text.SimpleDateFormat
@@ -102,5 +103,27 @@ fun isOnline(context: Context): Boolean {
 
 
 fun String.editLikePhoneNumber(): String {
-    return this.replace("+", "").replace(" ", "").replace("(", "").replace(")", "").replace("-", "")
+    return this.replace(" ", "").replace("(", "").replace(")", "").replace("-", "")
 }
+
+
+fun Fragment.setBottomAnimations() {
+    val exitTransaction = MaterialSharedAxis(MaterialSharedAxis.Y, /* forward= */ true)
+    exitTransaction.duration = 500
+
+    exitTransition = exitTransaction
+    enterTransition = exitTransition
+
+
+    val reenterTransaction = MaterialSharedAxis(MaterialSharedAxis.Y, false)
+    reenterTransaction.duration = 500
+
+    reenterTransition = reenterTransaction
+    returnTransition = reenterTransition
+}
+
+fun <T> Fragment.setBackStackData(key: String, data: T, doBack: Boolean = false) {
+    findNavController().previousBackStackEntry?.savedStateHandle?.set(key, data)
+    if (doBack) findNavController().popBackStack()
+}
+

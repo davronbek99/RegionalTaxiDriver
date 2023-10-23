@@ -151,4 +151,7 @@
     <string name="close">Exit</string>
     <string name="cancel">Cancel</string>
     <string name="write_sms_code_des">We have sent an SMS message with an activation code to your phone</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="change_photo">Change Photo</string>
 </resources>

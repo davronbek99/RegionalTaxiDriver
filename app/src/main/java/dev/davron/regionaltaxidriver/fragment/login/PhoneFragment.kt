@@ -71,8 +71,8 @@ class PhoneFragment : Fragment(), CountryCodePicker.OnCountryChangeListener {
     private fun init() {
         sendCodeViewModel = ViewModelProvider(this)[SendCodeViewModel::class.java]
 
-        binding.txtPhone.showKeyboard()
         binding.txtPhone.setText("+998")
+        binding.txtPhone.showKeyboard()
 //        binding.errorTv.visibility = View.GONE
 //        countryCodePicker = CountryCodePicker(binding.countryCodeCard.root, requireContext(), this)
 
@@ -194,6 +194,7 @@ class PhoneFragment : Fragment(), CountryCodePicker.OnCountryChangeListener {
             is ResApis.Success -> {
                 //response is success
                 binding.layer.visibility = View.GONE
+                Toast.makeText(requireContext(), it.data.message, Toast.LENGTH_SHORT).show()
                 val bundle = Bundle()
                 bundle.putString(
                     "phone",

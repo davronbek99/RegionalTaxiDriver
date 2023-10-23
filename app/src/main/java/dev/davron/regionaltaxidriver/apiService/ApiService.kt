@@ -1,9 +1,11 @@
 package dev.davron.regionaltaxidriver.apiService
 
 import dev.davron.regionaltaxidriver.modelApi.loginActivity.ResCommon
-import dev.davron.regionaltaxidriver.modelApi.loginActivity.signIn.ResSignIn
+import dev.davron.regionaltaxidriver.modelApi.loginActivity.signIn.signIn.ResponseSignIn
 import dev.davron.regionaltaxidriver.modelApi.loginActivity.signIn.updatePhone.ResSendForUpdatePhone
 import dev.davron.regionaltaxidriver.modelApi.mapTaxi.activeOrder.ResponseActiveOrder
+import dev.davron.regionaltaxidriver.models.login.fullName.RequestFullInformation
+import dev.davron.regionaltaxidriver.models.signIn.SignIn
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.Field
@@ -26,15 +28,20 @@ interface ApiService {
 //    @Headers("Content-Type: application/json")
 //    suspend fun sendCode(@Field("phoneNumber") phoneNumber: String): Response<ResCommon>
 
-
     //sign in
-    @FormUrlEncoded
-    @POST("smstestiviy/checkcode")
+//    @FormUrlEncoded
+    @POST("smstestiviy/checkCode")
+    @Headers("Content-Type: application/json")
     suspend fun signIn(
-        @Field("phoneNumber") phoneNumber: String,
-        @Field("code") smsCode: String,
-        @Field("firebase_token") fToken: String
-    ): Response<dev.davron.regionaltaxidriver.modelApi.loginActivity.signIn.signIn.ResSignIn>
+        @Body signIn: SignIn
+    ): Response<ResponseSignIn>
+
+    @POST("smstestiviy/checkCode")
+    @Headers("Content-Type: application/json")
+    suspend fun fullInformation(
+        @Body requestFullInformation: RequestFullInformation
+    ): Response<ResponseSignIn>
+
 
     @GET("driver/orders/city/active-order")
     suspend fun getActiveOrder(

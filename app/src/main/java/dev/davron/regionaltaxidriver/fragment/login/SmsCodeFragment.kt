@@ -40,6 +40,7 @@ import dev.davron.regionaltaxidriver.SplashScreenActivity
 import dev.davron.regionaltaxidriver.apiService.PhoneNumber
 import dev.davron.regionaltaxidriver.databinding.FragmentSmsCodeBinding
 import dev.davron.regionaltaxidriver.dialogs.exitDialog.ReallyYouWantToExit
+import dev.davron.regionaltaxidriver.models.signIn.SignIn
 import dev.davron.regionaltaxidriver.responseApis.ResApis
 import dev.davron.regionaltaxidriver.utils.Common
 import dev.davron.regionaltaxidriver.utils.Convertor.timer
@@ -109,7 +110,7 @@ class SmsCodeFragment : Fragment(), ReallyYouWantToExit.OnItemClickListener {
 
             Log.d("@@@", "uIOnItemClick: $otpNumber")
             if (otpNumber != "") {
-                sendCodeViewModel.signIn(phoneNumber, otpNumber.toString(), fToken)
+                sendCodeViewModel.signIn(SignIn(phoneNumber, otpNumber.toString()))
                 binding.loadingLayout.visibility = View.VISIBLE
                 binding.layoutHead.alpha = 0.5f
                 binding.layoutBottom.alpha = 0.5f
@@ -160,7 +161,7 @@ class SmsCodeFragment : Fragment(), ReallyYouWantToExit.OnItemClickListener {
             otpNumber = it
             view.hideKeyboard()
 
-            sendCodeViewModel.signIn(phoneNumber.editLikePhoneNumber(), otpNumber, fToken)
+            sendCodeViewModel.signIn(SignIn(phoneNumber, otpNumber))
             binding.loadingLayout.visibility = View.VISIBLE
             binding.layoutHead.alpha = 0.5f
             binding.layoutBottom.alpha = 0.5f
@@ -236,7 +237,6 @@ class SmsCodeFragment : Fragment(), ReallyYouWantToExit.OnItemClickListener {
         sendCodeViewModel.signInMutableData.observe(requireActivity()) {
             when (it) {
                 is ResApis.Error -> {
-                    Toast.makeText(requireContext(), "Errorga tushdi", Toast.LENGTH_SHORT).show()
                     binding.errorTv.visibility = View.VISIBLE
                     binding.constraintRoot.alpha = 1f
                     binding.loadingLayout.visibility = View.GONE
@@ -248,19 +248,21 @@ class SmsCodeFragment : Fragment(), ReallyYouWantToExit.OnItemClickListener {
                         countDownTimer.cancel()
                     }
 
-                    Common.tempToken = "Bearer ${it.data.token}"
+                    findNavController().navigate(R.id.to_full_info)
 
-                    if (it.data.registered) {
-                        MySharedPreferences.addToken(requireContext(), Common.tempToken)
-                        val intent = Intent(requireContext(), SplashScreenActivity::class.java)
-                        intent.putExtra("from_login", true)
-                        startActivity(intent)
-                        requireActivity().finishAffinity()
-                    } else {
-                        binding.constraintRoot.alpha = 1f
-                        binding.loadingLayout.visibility = View.GONE
-                        findNavController().navigate(R.id.to_full_info)
-                    }
+//                    Common.tempToken = "Bearer ${it.data.token}"
+
+//                    if (it.data.registered) {
+//                        MySharedPreferences.addToken(requireContext(), Common.tempToken)
+//                        val intent = Intent(requireContext(), SplashScreenActivity::class.java)
+//                        intent.putExtra("from_login", true)
+//                        startActivity(intent)
+//                        requireActivity().finishAffinity()
+//                    } else {
+//                        binding.constraintRoot.alpha = 1f
+//                        binding.loadingLayout.visibility = View.GONE
+//                        findNavController().navigate(R.id.to_full_info)
+//                    }
                 }
 
                 else -> {}
@@ -334,8 +336,7 @@ class SmsCodeFragment : Fragment(), ReallyYouWantToExit.OnItemClickListener {
                 } else {
                     Toast.makeText(requireContext(), "B", Toast.LENGTH_SHORT).show()
                     sendCodeViewModel.signIn(
-                        phoneNumber.editLikePhoneNumber(), binding.otpView.text.toString(), fToken
-                    )
+                        SignIn(phoneNumber.editLikePhoneNumber(), otpNumber))
                 }
             } else {
             }

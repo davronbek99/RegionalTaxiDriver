@@ -2,6 +2,7 @@ package dev.davron.regionaltaxidriver.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Bitmap
 import android.location.Location
 import androidx.lifecycle.MutableLiveData
 
@@ -26,11 +27,20 @@ object Common {
 
     ///global variables
 
+    var currentCameraType = -1
+
     lateinit var globalContext: Context
 
     var packageName = ""
     var accountStatus = "new"
 
     var tempToken = ""
+
+    //profile editing
+    var isPhotoChangingForFragments = false
+    var successLiveData: MutableLiveData<Int> = MutableLiveData(-1)
+    var fromMutableLiveData: MutableLiveData<String?> = MutableLiveData(null)
+    var bitmapMutableLiveData: MutableLiveData<Bitmap?> = MutableLiveData(null)
+
 
 }

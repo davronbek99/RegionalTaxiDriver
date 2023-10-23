@@ -7,8 +7,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.davron.regionaltaxidriver.apiService.PhoneNumber
 import dev.davron.regionaltaxidriver.repositories.NetworkRepository
 import dev.davron.regionaltaxidriver.modelApi.loginActivity.ResCommon
-import dev.davron.regionaltaxidriver.modelApi.loginActivity.signIn.signIn.ResSignIn
+import dev.davron.regionaltaxidriver.modelApi.loginActivity.signIn.signIn.ResponseSignIn
 import dev.davron.regionaltaxidriver.modelApi.loginActivity.signIn.updatePhone.ResSendForUpdatePhone
+import dev.davron.regionaltaxidriver.models.signIn.SignIn
 import dev.davron.regionaltaxidriver.responseApis.ResApis
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -18,7 +19,7 @@ class SendCodeViewModel @Inject constructor(private val networkRepository: Netwo
     ViewModel() {
 
     val sendCodeMutableData = MutableLiveData<ResApis<ResCommon>>(ResApis.Loading())
-    val signInMutableData = MutableLiveData<ResApis<ResSignIn>>(ResApis.Loading())
+    val signInMutableData = MutableLiveData<ResApis<ResponseSignIn>>(ResApis.Loading())
 
     fun sendCode(phoneNumber: PhoneNumber) {
         viewModelScope.launch {
@@ -36,10 +37,10 @@ class SendCodeViewModel @Inject constructor(private val networkRepository: Netwo
         }
     }
 
-    fun signIn(phoneNumber: String, smsCode: String, fToken: String) {
+    fun signIn(signIn: SignIn) {
         viewModelScope.launch {
             try {
-                networkRepository.signIn(phoneNumber, smsCode, fToken).also {
+                networkRepository.signIn(signIn).also {
                     if (it.isSuccessful) {
                         signInMutableData.postValue(ResApis.Success(it.body()!!))
                     } else {

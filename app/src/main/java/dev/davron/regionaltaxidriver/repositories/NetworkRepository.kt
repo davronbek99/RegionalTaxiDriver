@@ -2,6 +2,8 @@ package dev.davron.regionaltaxidriver.repositories
 
 import dev.davron.regionaltaxidriver.apiService.ApiService
 import dev.davron.regionaltaxidriver.apiService.PhoneNumber
+import dev.davron.regionaltaxidriver.models.login.fullName.RequestFullInformation
+import dev.davron.regionaltaxidriver.models.signIn.SignIn
 import javax.inject.Inject
 
 class NetworkRepository @Inject constructor(private val apiService: ApiService) {
@@ -11,9 +13,11 @@ class NetworkRepository @Inject constructor(private val apiService: ApiService) 
     suspend fun sendCode(phoneNumber: PhoneNumber) = apiService.sendCode(phoneNumber)
 
     //sign in
-    suspend fun signIn(phoneNumber: String, smsCode: String, fToken: String) =
-        apiService.signIn(phoneNumber, smsCode, fToken)
+    suspend fun signIn(signIn: SignIn) =
+        apiService.signIn(signIn)
 
+    suspend fun requestFullInformation(requestFullInformation: RequestFullInformation) =
+        apiService.fullInformation(requestFullInformation)
 
     suspend fun getActiveOrder(token: String) = apiService.getActiveOrder(token)
 

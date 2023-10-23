@@ -57,6 +57,7 @@
                     android:src="@drawable/icon_contact" />
 
                 <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/firstname"
                     style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -89,6 +90,7 @@
                     android:src="@drawable/icon_contact" />
 
                 <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/lastname"
                     style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -138,6 +140,7 @@
                         android:textSize="12sp" />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/date_of_birth"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nunito_sans_7pt_regular"

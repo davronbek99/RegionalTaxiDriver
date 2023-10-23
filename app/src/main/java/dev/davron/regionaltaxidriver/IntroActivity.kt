@@ -37,7 +37,7 @@ class IntroActivity : AppCompatActivity() {
     override fun onCreate(
         savedInstanceState: Bundle?
     ) {
-//        setTheme()
+        setTheme()
         super.onCreate(savedInstanceState)
         binding = ActivityIntroBinding.inflate(layoutInflater)
         setContentView(binding.root)
