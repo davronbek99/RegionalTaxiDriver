@@ -88,6 +88,7 @@
     <dimen name="dimen_220dp">220dp</dimen>
     <dimen name="dimen_240dp">240dp</dimen>
     <dimen name="dimen_256dp">256dp</dimen>
+    <dimen name="dimen_325dp">325dp</dimen>
 
     <dimen name="iconTextMargin">6dp</dimen>
     <dimen name="corner">5dp</dimen>

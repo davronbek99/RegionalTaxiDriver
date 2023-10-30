@@ -154,4 +154,8 @@
     <string name="camera">Camera</string>
     <string name="gallery">Gallery</string>
     <string name="change_photo">Change Photo</string>
+    <string name="how_does_it_look">How does it look?</string>
+    <string name="how_look_des">Make sure your face is centered and visible. This photo will help customers recognize you.</string>
+    <string name="save">Save</string>
+    <string name="retake">Again</string>
 </resources>

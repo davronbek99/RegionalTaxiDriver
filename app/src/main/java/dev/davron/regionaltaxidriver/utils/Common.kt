@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData
 @SuppressLint("StaticFieldLeak")
 object Common {
 
+    var phoneNumber=""
     var state: String = ""
 
     var myLocation: Location? = null
@@ -42,5 +43,18 @@ object Common {
     var fromMutableLiveData: MutableLiveData<String?> = MutableLiveData(null)
     var bitmapMutableLiveData: MutableLiveData<Bitmap?> = MutableLiveData(null)
 
+    //registrating part
+    var firstName = ""
+    var lastName = ""
+    var birthDay = ""
+    var gender = ""
+    var profilePhoto = ""
+
+    //register transport model
+    var transportMarkaId = -1
+    var transportModelId = -1
+    var transportColorId = -1
+    var transportRealeseYear = -1
+    var carNumber = ""
 
 }

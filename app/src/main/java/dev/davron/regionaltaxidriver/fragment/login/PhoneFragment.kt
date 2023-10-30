@@ -23,6 +23,7 @@ import dev.davron.regionaltaxidriver.databinding.FragmentPhoneBinding
 import dev.davron.regionaltaxidriver.modelApi.loginActivity.ResCommon
 import dev.davron.regionaltaxidriver.models.login.CountryCode
 import dev.davron.regionaltaxidriver.responseApis.ResApis
+import dev.davron.regionaltaxidriver.utils.Common
 import dev.davron.regionaltaxidriver.utils.MySharedPreferences
 import dev.davron.regionaltaxidriver.utils.setAnimations
 import dev.davron.regionaltaxidriver.utils.showKeyboard
@@ -195,6 +196,9 @@ class PhoneFragment : Fragment(), CountryCodePicker.OnCountryChangeListener {
                 //response is success
                 binding.layer.visibility = View.GONE
                 Toast.makeText(requireContext(), it.data.message, Toast.LENGTH_SHORT).show()
+                Common.phoneNumber =
+                    binding.txtPhone.masked.replace(" ", "").replace("(", "").replace(")", "")
+
                 val bundle = Bundle()
                 bundle.putString(
                     "phone",

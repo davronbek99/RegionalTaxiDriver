@@ -2,19 +2,28 @@ package dev.davron.regionaltaxidriver.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Matrix
+import android.media.ExifInterface
 import android.net.ConnectivityManager
+import android.os.Build
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import android.webkit.MimeTypeMap
 import androidx.annotation.ColorInt
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.transition.platform.MaterialSharedAxis
 import dev.davron.regionaltaxidriver.R
+import java.io.File
+import java.net.URLEncoder
 import java.text.SimpleDateFormat
 import java.util.Date
+import java.util.Locale
 
 
 fun FragmentActivity.statusBarColor(
@@ -125,5 +134,67 @@ fun Fragment.setBottomAnimations() {
 fun <T> Fragment.setBackStackData(key: String, data: T, doBack: Boolean = false) {
     findNavController().previousBackStackEntry?.savedStateHandle?.set(key, data)
     if (doBack) findNavController().popBackStack()
+}
+
+
+fun getRotationRightBitmap(file: File): Bitmap {
+    var bitmap: Bitmap = BitmapFactory.decodeFile(file.path)
+
+    val ei = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        ExifInterface(file.absolutePath)
+    } else {
+        ExifInterface(file.absolutePath)
+    }
+    val orientation = ei.getAttributeInt(
+        ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED
+    )
+
+    var rotatedBitmap: Bitmap? = null
+    rotatedBitmap = when (orientation) {
+        ExifInterface.ORIENTATION_ROTATE_90 -> rotatedImage(bitmap, 90f)
+        ExifInterface.ORIENTATION_ROTATE_180 -> rotatedImage(bitmap, 180f)
+        ExifInterface.ORIENTATION_ROTATE_270 -> rotatedImage(bitmap, 270f)
+        ExifInterface.ORIENTATION_NORMAL -> bitmap
+        else -> bitmap
+    }
+
+    return rotatedBitmap
+}
+
+fun rotatedImage(source: Bitmap, angle: Float): Bitmap {
+    val matrix = Matrix()
+    matrix.postRotate(angle)
+    return Bitmap.createBitmap(
+        source, 0, 0, source.width, source.height, matrix, true
+    )
+}
+
+fun Bitmap.flipHorizontal(): Bitmap {
+    val matrix = Matrix()
+    matrix.postScale(-1f, 1f, width / 2.0f, height / 2.0f)
+    return Bitmap.createBitmap(this, 0, 0, width, height, matrix, true)
+}
+
+fun <T> Fragment.getBackStackData(
+    key: String, singleCall: Boolean = true, result: (T) -> (Unit)
+) {
+    findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<T>(key)
+        ?.observe(viewLifecycleOwner) {
+            result(it)
+            if (singleCall) findNavController().currentBackStackEntry?.savedStateHandle?.remove<T>(
+                key
+            )
+        }
+}
+
+
+fun File.getExtension(): String {
+    val encoded: String = try {
+        URLEncoder.encode(name, "UTF-8").replace("+", "%20")
+    } catch (e: Exception) {
+        name
+    }
+
+    return MimeTypeMap.getFileExtensionFromUrl(encoded).toLowerCase(Locale.getDefault())
 }
 

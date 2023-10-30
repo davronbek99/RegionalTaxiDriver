@@ -96,13 +96,13 @@ android {
         implementation("com.github.chrisbanes:PhotoView:2.3.0")
 
         //camera view (cameraX)
-        implementation("androidx.camera:camera-core:1.4.0-alpha01")
-        implementation("androidx.camera:camera-camera2:1.4.0-alpha01")
-        implementation("androidx.camera:camera-lifecycle:1.4.0-alpha01")
-        implementation("androidx.camera:camera-video:1.4.0-alpha01")
+        implementation("androidx.camera:camera-core:1.4.0-alpha02")
+        implementation("androidx.camera:camera-camera2:1.4.0-alpha02")
+        implementation("androidx.camera:camera-lifecycle:1.4.0-alpha02")
+        implementation("androidx.camera:camera-video:1.4.0-alpha02")
 
-        implementation("androidx.camera:camera-view:1.4.0-alpha01")
-        implementation("androidx.camera:camera-extensions:1.4.0-alpha01")
+        implementation("androidx.camera:camera-view:1.4.0-alpha02")
+        implementation("androidx.camera:camera-extensions:1.4.0-alpha02")
 
         //lingver library
         implementation("com.github.YarikSOffice:lingver:1.3.0")
@@ -145,12 +145,16 @@ android {
         implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 
         ///room
-        implementation("androidx.room:room-runtime:2.5.2")
-        annotationProcessor("androidx.room:room-compiler:2.5.2")
+        implementation("androidx.room:room-runtime:2.6.0")
+        annotationProcessor("androidx.room:room-compiler:2.6.0")
 
 
         //mad location manager
         implementation("com.github.maddevsio:mad-location-manager:0.1.14")
+
+        //image cropper 2
+        implementation ("com.github.jayrambhia:CropperNoCropper:0.3.2")
+
 
     }
 

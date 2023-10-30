@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/main_bg_color"
     tools:context=".fragment.login.registration.AddProfilePhotoFragment">
 
@@ -87,7 +87,6 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/next_button"
-            app:drawableTint="@color/main_blue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -99,11 +98,13 @@
             android:text="@string/next"
             android:textColor="@color/main_blue"
             android:textSize="@dimen/dimen_18dp"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:drawableTint="@color/main_blue" />
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_24dp">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/add_photo_button"
@@ -131,7 +132,8 @@
             android:layout_height="@dimen/dimen_56dp"
             android:layout_marginTop="@dimen/dimen_10dp"
             android:gravity="center"
-            android:text="@string/later" />
+            android:text="@string/later"
+            android:visibility="gone" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 </FrameLayout>

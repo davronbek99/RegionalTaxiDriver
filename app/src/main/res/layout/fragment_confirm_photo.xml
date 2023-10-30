@@ -2,13 +2,119 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/main_bg_color"
     android:layout_height="match_parent"
     tools:context=".fragment.login.registration.ConfirmPhotoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!--    main part-->
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
+        <!--        toolbar-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:src="@drawable/ic_close"
+                android:tint="@color/brand_main_primary" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/sfpro_display_semibold"
+                android:text="@string/add_photo"
+                android:textColor="@color/brand_main_primary"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/dimen_325dp"
+            android:layout_height="@dimen/dimen_325dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            app:cardCornerRadius="@dimen/dimen_325dp"
+            app:cardElevation="0dp">
+
+            <com.fenchtose.nocropper.CropperView
+                android:id="@+id/cropper_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:background="#ff282828"
+                app:nocropper__grid_color="@color/colorAccent"
+                app:nocropper__grid_opacity="0"
+                app:nocropper__grid_thickness="0.8dp"
+                app:nocropper__padding_color="#ff282828" />
+
+        </androidx.cardview.widget.CardView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/dimen_16dp"
+        android:paddingTop="@dimen/dimen_16dp"
+        android:paddingBottom="@dimen/dimen_26dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/txt_display_medium_22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/how_does_it_look"
+            android:textColor="@color/brand_main_primary" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/txt_display_regular_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_13dp"
+            android:fontFamily="@font/sfpro_display_regular"
+            android:text="@string/how_look_des"
+            android:textColor="@color/seattle_120"
+            android:textSize="14sp" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:orientation="horizontal">
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save_button"
+                style="@style/secondary_main_button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_56dp"
+                android:layout_marginEnd="@dimen/dimen_8dp"
+                android:layout_weight="1"
+                android:text="@string/save" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/retake_button"
+                style="@style/main_button_style"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_56dp"
+                android:layout_marginStart="@dimen/dimen_8dp"
+                android:layout_weight="1"
+                android:text="@string/retake" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </FrameLayout>
