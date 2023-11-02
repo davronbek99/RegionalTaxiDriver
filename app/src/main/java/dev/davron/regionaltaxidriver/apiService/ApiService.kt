@@ -51,6 +51,36 @@ interface ApiService {
         @Body file: AttachUpload
     ): Response<ResponseAttachUpload>
 
+    @FormUrlEncoded
+    @POST("driver/auth/update")
+    suspend fun setPassportTypeAndDate(
+        @Header("Authorization") token: String,
+        @Field("document_type") documentType: String,
+        @Field("passport_serial") passportSerial: String
+    ): Response<ResCommon>
+
+    //set passport photos
+    @FormUrlEncoded
+    @POST("driver/auth/update")
+    suspend fun setPassportPhoto1(
+        @Header("Authorization") token: String,
+        @Field("passport_copy1") passportPhoto: String
+    ): Response<ResCommon>
+
+    @FormUrlEncoded
+    @POST("driver/auth/update")
+    suspend fun setPassportPhoto2(
+        @Header("Authorization") token: String,
+        @Field("passport_copy2") passportPhoto: String
+    ): Response<ResCommon>
+
+    @FormUrlEncoded
+    @POST("driver/auth/update")
+    suspend fun setPassportPhoto3(
+        @Header("Authorization") token: String,
+        @Field("passport_copy3") passportPhoto: String
+    ): Response<ResCommon>
+
 
     @GET("driver/orders/city/active-order")
     suspend fun getActiveOrder(

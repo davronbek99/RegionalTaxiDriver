@@ -30,7 +30,7 @@ import dev.davron.regionaltaxidriver.utils.statusBarColor
 import java.text.SimpleDateFormat
 import java.util.Date
 
-//@AndroidEntryPoint
+@AndroidEntryPoint
 class OnlineRegistrationActivity : AppCompatActivity(), NetworkState {
 
     private lateinit var binding: ActivityOnlineRegistrationBinding

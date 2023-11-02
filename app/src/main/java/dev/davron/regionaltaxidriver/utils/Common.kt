@@ -5,11 +5,12 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.location.Location
 import androidx.lifecycle.MutableLiveData
+import dev.davron.regionaltaxidriver.modelApi.loginActivity.me.MeModel
 
 @SuppressLint("StaticFieldLeak")
 object Common {
 
-    var phoneNumber=""
+    var phoneNumber = ""
     var state: String = ""
 
     var myLocation: Location? = null
@@ -56,5 +57,18 @@ object Common {
     var transportColorId = -1
     var transportRealeseYear = -1
     var carNumber = ""
+
+    var me: MeModel? = null
+
+    //activating city mode
+    var isPassportDone = false
+    var fromCheckPhotoFragment = false
+    var isDriverLicenseDone = false
+    var isTransportSelectionDone = false
+    var isTexPassportDone = false
+    var isPhotoTransport = false
+    var isSentForReview = false
+
+    var documentType = "passport"
 
 }

@@ -1,11 +1,15 @@
 package dev.davron.regionaltaxidriver.fragment.login.registration
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.OpenableColumns
+import android.provider.Settings
 import android.util.Base64
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,6 +23,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.fenchtose.nocropper.Cropper
 import com.fenchtose.nocropper.CropperCallback
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
+import com.karumi.dexter.listener.single.PermissionListener
 import dagger.hilt.android.AndroidEntryPoint
 import dev.davron.regionaltaxidriver.databinding.FragmentConfirmPhotoBinding
 import dev.davron.regionaltaxidriver.models.attachUpload.AttachUpload
@@ -134,13 +143,17 @@ class ConfirmPhotoFragment : Fragment() {
                         Toast.makeText(requireContext(), "1-if", Toast.LENGTH_SHORT).show()
 
                         getImage.launch("image/*")
-                        if (Common.isPhotoChangingForFragments) {
-                            Toast.makeText(requireContext(), "2-if", Toast.LENGTH_SHORT).show()
-                            Common.bitmapMutableLiveData.postValue(bitmap)
-                        } else {
-                            setBackStackData("bitmap", bitmap, true)
-
-                        }
+//                        if (requireContext().checkCallingOrSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+//                            getImage.launch("image/*")
+//                        } else {
+//                            requestPermission()
+//                        }
+//                        if (Common.isPhotoChangingForFragments) {
+//                            Toast.makeText(requireContext(), "2-if", Toast.LENGTH_SHORT).show()
+//                            Common.bitmapMutableLiveData.postValue(bitmap)
+//                        } else {
+//                            setBackStackData("bitmap", bitmap, true)
+//                        }
                     } else {
                         Toast.makeText(
                             requireContext(), "Something went wrong!", Toast.LENGTH_SHORT
@@ -252,6 +265,33 @@ class ConfirmPhotoFragment : Fragment() {
         }
 
         return file
+    }
+
+    private fun requestPermission() {
+        Dexter.withContext(requireContext())
+            .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+            .withListener(object : PermissionListener {
+                override fun onPermissionGranted(response: PermissionGrantedResponse?) { /* ... */
+                    getImage.launch("image/*")
+                }
+
+                override fun onPermissionDenied(response: PermissionDeniedResponse?) { /* ... */
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    val uri: Uri =
+                        Uri.fromParts("package", requireActivity().getPackageName(), null)
+                    intent.data = uri
+                    startActivity(intent)
+                }
+
+                override fun onPermissionRationaleShouldBeShown(
+                    p0: com.karumi.dexter.listener.PermissionRequest?,
+                    p1: PermissionToken?
+                ) {
+                    p1?.continuePermissionRequest()
+                }
+
+
+            }).check()
     }
 
 }

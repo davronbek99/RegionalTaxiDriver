@@ -8,6 +8,7 @@ import android.graphics.Matrix
 import android.media.ExifInterface
 import android.net.ConnectivityManager
 import android.os.Build
+import android.util.Base64
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
@@ -19,6 +20,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.transition.platform.MaterialSharedAxis
 import dev.davron.regionaltaxidriver.R
+import java.io.ByteArrayOutputStream
 import java.io.File
 import java.net.URLEncoder
 import java.text.SimpleDateFormat
@@ -198,3 +200,20 @@ fun File.getExtension(): String {
     return MimeTypeMap.getFileExtensionFromUrl(encoded).toLowerCase(Locale.getDefault())
 }
 
+
+fun File.imageFileToBase64(): String {
+    var bitmap = getRotationRightBitmap(this)
+//    if (Common.currentCameraType == 0) {
+//        bitmap = rotatedImage(bitmap, -90f)
+//    } else {
+//        bitmap = rotatedImage(bitmap, 0f)
+//    }
+    val stream = ByteArrayOutputStream()
+    bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream)
+    val byteArray: ByteArray = stream.toByteArray()
+    var encodedString = Base64.encodeToString(byteArray, Base64.DEFAULT)
+
+    encodedString = "data:image/jpeg;base64,$encodedString"
+
+    return encodedString
+}

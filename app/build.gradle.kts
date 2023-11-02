@@ -155,7 +155,10 @@ android {
         //image cropper 2
         implementation ("com.github.jayrambhia:CropperNoCropper:0.3.2")
 
-
+        //glide
+        implementation ("com.github.bumptech.glide:glide:4.13.0")
+        //noinspection KaptUsageInsteadOfKsp
+        kapt ("com.github.bumptech.glide:compiler:4.13.0")
     }
 
     kapt {

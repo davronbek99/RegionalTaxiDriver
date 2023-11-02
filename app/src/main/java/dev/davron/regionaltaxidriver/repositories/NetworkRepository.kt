@@ -30,4 +30,17 @@ class NetworkRepository @Inject constructor(private val apiService: ApiService) 
         apiService.verifyUpdatePhone(token, phoneNumber, code)
 
     suspend fun attachUpload(file: AttachUpload) = apiService.attachUpload(file)
+
+    suspend fun setPassportSerial(token: String, documentType: String, passportSerial: String) =
+        apiService.setPassportTypeAndDate(token, documentType, passportSerial)
+
+    suspend fun setPassportPhoto1(token: String, passportPhoto: String) =
+        apiService.setPassportPhoto1(token, passportPhoto)
+
+    suspend fun setPassportPhoto2(token: String, passportPhoto: String) =
+        apiService.setPassportPhoto2(token, passportPhoto)
+
+    suspend fun setPassportPhoto3(token: String, passportPhoto: String) =
+        apiService.setPassportPhoto3(token, passportPhoto)
+
 }

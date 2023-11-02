@@ -133,7 +133,7 @@
             android:layout_marginTop="@dimen/dimen_10dp"
             android:gravity="center"
             android:text="@string/later"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 </FrameLayout>
