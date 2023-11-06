@@ -157,4 +157,8 @@
     <string name="how_look_des">Make sure your face is centered and visible. This photo will help customers recognize you.</string>
     <string name="save">Save</string>
     <string name="retake">Again</string>
+    <string name="front_side">Front side</string>
+    <string name="front_side_des_1">Get the ID of the card to match the frame.Will convince that:</string>
+    <string name="front_side_des2">-ID card is well lit -ID card is not overlapped with a finger -There are no glare</string>
+    <string name="take_photo">Take a photo</string>
 </resources>

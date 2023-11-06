@@ -5,6 +5,8 @@ import dev.davron.regionaltaxidriver.apiService.PhoneNumber
 import dev.davron.regionaltaxidriver.models.attachUpload.AttachUpload
 import dev.davron.regionaltaxidriver.models.login.fullName.RequestFullInformation
 import dev.davron.regionaltaxidriver.models.signIn.SignIn
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import javax.inject.Inject
 
 class NetworkRepository @Inject constructor(private val apiService: ApiService) {
@@ -29,7 +31,7 @@ class NetworkRepository @Inject constructor(private val apiService: ApiService) 
     suspend fun verifyUpdatePhone(token: String, phoneNumber: String, code: String) =
         apiService.verifyUpdatePhone(token, phoneNumber, code)
 
-    suspend fun attachUpload(file: AttachUpload) = apiService.attachUpload(file)
+    suspend fun attachUpload(file: RequestBody) = apiService.attachUpload(file)
 
     suspend fun setPassportSerial(token: String, documentType: String, passportSerial: String) =
         apiService.setPassportTypeAndDate(token, documentType, passportSerial)

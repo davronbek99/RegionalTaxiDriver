@@ -11,6 +11,8 @@ import dev.davron.regionaltaxidriver.models.login.fullName.RequestFullInformatio
 import dev.davron.regionaltaxidriver.repositories.NetworkRepository
 import dev.davron.regionaltaxidriver.responseApis.ResApis
 import kotlinx.coroutines.launch
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import javax.inject.Inject
 import kotlin.Exception
 
@@ -41,7 +43,7 @@ class PersonalInformationViewModel @Inject constructor(private val networkReposi
         }
     }
 
-    fun attachUpload(file: AttachUpload) {
+    fun attachUpload(file: RequestBody) {
         viewModelScope.launch {
             try {
                 networkRepository.attachUpload(file).also {

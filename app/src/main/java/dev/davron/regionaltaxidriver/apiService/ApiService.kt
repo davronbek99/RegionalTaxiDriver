@@ -9,6 +9,8 @@ import dev.davron.regionaltaxidriver.modelApi.responseAttachUpload.ResponseAttac
 import dev.davron.regionaltaxidriver.models.attachUpload.AttachUpload
 import dev.davron.regionaltaxidriver.models.login.fullName.RequestFullInformation
 import dev.davron.regionaltaxidriver.models.signIn.SignIn
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.Field
@@ -16,7 +18,9 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Headers
+import retrofit2.http.Multipart
 import retrofit2.http.POST
+import retrofit2.http.Part
 
 interface ApiService {
 
@@ -45,10 +49,11 @@ interface ApiService {
         @Body requestFullInformation: RequestFullInformation
     ): Response<ResponseFullInformation>
 
+//    @Multipart
     @POST("attach/upload")
     @Headers("Content-Type: application/json")
     suspend fun attachUpload(
-        @Body file: AttachUpload
+         @Body file: RequestBody
     ): Response<ResponseAttachUpload>
 
     @FormUrlEncoded

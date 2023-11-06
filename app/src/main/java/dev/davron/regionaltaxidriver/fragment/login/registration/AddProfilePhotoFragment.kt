@@ -370,8 +370,8 @@ class AddProfilePhotoFragment : Fragment(), ChooseAddPhotoTypeDialog.OnItemClick
 
                 // MultipartBody.Part is used to send also the actual file name
                 val photoBody = MultipartBody.Part.createFormData("photo", file.name, requestFile)
-                Toast.makeText(requireContext(), "So'rov ketdi", Toast.LENGTH_SHORT).show()
-                personalInformationViewModel.attachUpload(AttachUpload(photoBody))
+                Toast.makeText(requireContext(), "So'rov ke`tdi", Toast.LENGTH_SHORT).show()
+//                personalInformationViewModel.attachUpload(AttachUpload(photoBody))
 //                binding.loadingLayout.loadingLayout.visibility = View.VISIBLE
 //
 //                Glide.with(binding.image).load(it)

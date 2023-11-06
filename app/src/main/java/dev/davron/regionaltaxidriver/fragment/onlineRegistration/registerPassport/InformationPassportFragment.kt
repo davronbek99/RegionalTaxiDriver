@@ -1,10 +1,12 @@
 package dev.davron.regionaltaxidriver.fragment.onlineRegistration.registerPassport
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.MimeTypeMap
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.lifecycle.ViewModelProvider
@@ -17,10 +19,18 @@ import dev.davron.regionaltaxidriver.databinding.FragmentInformationPassportBind
 import dev.davron.regionaltaxidriver.dialogs.exitDialog.ReallyYouWantToExit
 import dev.davron.regionaltaxidriver.enums.Passport
 import dev.davron.regionaltaxidriver.fragment.onlineRegistration.onlineRegistrationViewModel.OnlineRegistrationViewModel
+import dev.davron.regionaltaxidriver.models.attachUpload.AttachUpload
+import dev.davron.regionaltaxidriver.responseApis.ResApis
 import dev.davron.regionaltaxidriver.utils.Common
 import dev.davron.regionaltaxidriver.utils.MySharedPreferences
 import dev.davron.regionaltaxidriver.utils.getBackStackData
+import dev.davron.regionaltaxidriver.utils.getExtension
 import dev.davron.regionaltaxidriver.utils.imageFileToBase64
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import java.io.File
 
 @AndroidEntryPoint
@@ -52,9 +62,7 @@ class InformationPassportFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding = FragmentInformationPassportBinding.inflate(inflater, container, false)
 
@@ -77,7 +85,8 @@ class InformationPassportFragment : Fragment() {
 
     private fun setClickListeners() {
         binding.backButton.setOnClickListener {
-            val reallyYouWantToExit = ReallyYouWantToExit(requireContext(),
+            val reallyYouWantToExit = ReallyYouWantToExit(
+                requireContext(),
                 object : ReallyYouWantToExit.OnItemClickListener {
                     override fun onCancelButtonClicked() {
 
@@ -86,8 +95,7 @@ class InformationPassportFragment : Fragment() {
                     override fun onExitButtonClicked() {
                         Common.isPassportDone = false
                         findNavController().popBackStack(
-                            R.id.registrationMainFragment,
-                            false
+                            R.id.registrationMainFragment, false
                         )
                     }
                 })
@@ -95,6 +103,36 @@ class InformationPassportFragment : Fragment() {
             reallyYouWantToExit.show()
         }
 
+        binding.readyButton.setOnClickListener {
+            val token = MySharedPreferences.getToken(requireContext())
+            viewModel.setPassportSerial(
+                token, documentType, binding.seriNumberEt.unMasked
+            )
+
+            binding.layer.visibility = View.VISIBLE
+        }
+
+        binding.firstPositionFrontSide.setOnClickListener {
+            currentClickedPosition = Passport.FRONT_SIDE.name
+
+            val bundle = Bundle()
+            bundle.putString("type", Passport.PASSPORT_TYPE.name)
+            bundle.putString("side", Passport.FRONT_SIDE.name)
+            findNavController().navigate(
+                R.id.to_check_camera_photo, bundle
+            )
+        }
+
+        binding.firstPositionResidenceSide.setOnClickListener {
+            currentClickedPosition = Passport.RESIDENCE_SIDE.name
+
+            val bundle = Bundle()
+            bundle.putString("type", Passport.PASSPORT_TYPE.name)
+            bundle.putString("side", Passport.RESIDENCE_SIDE.name)
+            findNavController().navigate(
+                R.id.to_check_camera_photo, bundle
+            )
+        }
 
     }
 
@@ -140,9 +178,7 @@ class InformationPassportFragment : Fragment() {
                 binding.progressFrontSide.root.visibility = View.GONE
                 binding.imageFrontSide.visibility = View.VISIBLE
                 Glide.with(this).load(Common.me?.content?.passport_copy1)
-                    .placeholder(R.drawable.loading_image)
-                    .centerCrop()
-                    .into(binding.imageFrontSide)
+                    .placeholder(R.drawable.loading_image).centerCrop().into(binding.imageFrontSide)
                 isFrontSide = true
             }
         }
@@ -172,8 +208,7 @@ class InformationPassportFragment : Fragment() {
                 binding.imageResidenceSide.visibility = View.VISIBLE
                 binding.progressResidenceSide.root.visibility = View.GONE
                 Glide.with(this).load(Common.me?.content?.passport_copy2)
-                    .placeholder(R.drawable.loading_image)
-                    .centerCrop()
+                    .placeholder(R.drawable.loading_image).centerCrop()
                     .into(binding.imageResidenceSide)
                 isResidenceSide = true
             }
@@ -203,8 +238,7 @@ class InformationPassportFragment : Fragment() {
                 binding.imageWithPersonSide.visibility = View.VISIBLE
                 binding.progressWithPersonSide.root.visibility = View.GONE
                 Glide.with(this).load(Common.me?.content?.passport_copy3)
-                    .placeholder(R.drawable.loading_image)
-                    .centerCrop()
+                    .placeholder(R.drawable.loading_image).centerCrop()
                     .into(binding.imageWithPersonSide)
                 isWithPersonSide = true
             }
@@ -227,13 +261,22 @@ class InformationPassportFragment : Fragment() {
                         binding.cancelImageFrontSide.visibility = View.GONE
 
                         val token = MySharedPreferences.getToken(requireContext())
-                        viewModel.setPassportPhoto1(
-                            token,
-                            it.imageFileToBase64()
+
+                        val requestFile = RequestBody.create(
+                            MimeTypeMap.getSingleton().getMimeTypeFromExtension(it.getExtension())
+                                ?.toMediaType(), it
                         )
 
-                        frontSideUploadingProgressBar = UploadingProgressBar(
-                            requireContext(),
+                        var requestBody: RequestBody? = null
+
+                        val photoBody =
+                            MultipartBody.Part.createFormData("file", it.name, requestFile)
+                        requestBody = RequestBody.create("file".toMediaType(), it)
+                        viewModel.attachUpload(
+                            requestFile
+                        )
+
+                        frontSideUploadingProgressBar = UploadingProgressBar(requireContext(),
                             binding.progressFrontSide.root,
                             object : UploadingProgressBar.OnCancelButtonClickListener {
                                 override fun onUploadingFinished() {
@@ -269,12 +312,10 @@ class InformationPassportFragment : Fragment() {
                         checkButtonType()
                         val token = MySharedPreferences.getToken(requireContext())
                         viewModel.setPassportPhoto2(
-                            token,
-                            it.imageFileToBase64()
+                            token, it.imageFileToBase64()
                         )
 
-                        residenceSideUploadingProgressBar = UploadingProgressBar(
-                            requireContext(),
+                        residenceSideUploadingProgressBar = UploadingProgressBar(requireContext(),
                             binding.progressResidenceSide.root,
                             object : UploadingProgressBar.OnCancelButtonClickListener {
                                 override fun onUploadingFinished() {
@@ -311,12 +352,10 @@ class InformationPassportFragment : Fragment() {
 
                         val token = MySharedPreferences.getToken(requireContext())
                         viewModel.setPassportPhoto3(
-                            token,
-                            it.imageFileToBase64()
+                            token, it.imageFileToBase64()
                         )
 
-                        withPersonUploadingProgressBar = UploadingProgressBar(
-                            requireContext(),
+                        withPersonUploadingProgressBar = UploadingProgressBar(requireContext(),
                             binding.progressWithPersonSide.root,
                             object : UploadingProgressBar.OnCancelButtonClickListener {
                                 override fun onUploadingFinished() {
@@ -354,12 +393,38 @@ class InformationPassportFragment : Fragment() {
     }
 
     private fun setViewModelListener() {
+        viewModel.attachUploadData.observe(requireActivity()) {
+            when (it) {
+                is ResApis.Error -> {
+                    Toast.makeText(
+                        requireContext(), it.message, Toast.LENGTH_SHORT
+                    ).show()
+                    Log.d("STATUS", it.message)
+                    binding.firstPositionFrontSide.visibility = View.VISIBLE
+                    binding.readyFrontSide.visibility = View.VISIBLE
+                    binding.progressFrontSide.root.visibility = View.GONE
+                }
 
+                is ResApis.Success -> {
+                    Log.d("STATUS", it.data.url!!)
+                    if (isFrontSideCancelled) {
+                        isFrontSide = false
+                        isFrontSideCancelled = false
+                    } else {
+                        frontSideUploadingProgressBar?.setLoadingDone()
+                    }
+
+                }
+
+                else -> {}
+            }
+        }
     }
 
     private fun setOnBackPressed() {
         activity?.onBackPressedDispatcher?.addCallback {
-            val reallyYouWantToExit = ReallyYouWantToExit(requireContext(),
+            val reallyYouWantToExit = ReallyYouWantToExit(
+                requireContext(),
                 object : ReallyYouWantToExit.OnItemClickListener {
                     override fun onCancelButtonClicked() {
 
@@ -368,8 +433,7 @@ class InformationPassportFragment : Fragment() {
                     override fun onExitButtonClicked() {
                         Common.isPassportDone = false
                         findNavController().popBackStack(
-                            R.id.registrationMainFragment,
-                            false
+                            R.id.registrationMainFragment, false
                         )
                     }
                 })

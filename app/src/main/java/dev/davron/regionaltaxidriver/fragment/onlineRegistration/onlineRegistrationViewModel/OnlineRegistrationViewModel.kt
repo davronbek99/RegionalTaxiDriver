@@ -5,9 +5,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.davron.regionaltaxidriver.modelApi.loginActivity.ResCommon
+import dev.davron.regionaltaxidriver.modelApi.responseAttachUpload.ResponseAttachUpload
+import dev.davron.regionaltaxidriver.models.attachUpload.AttachUpload
 import dev.davron.regionaltaxidriver.repositories.NetworkRepository
 import dev.davron.regionaltaxidriver.responseApis.ResApis
 import kotlinx.coroutines.launch
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import java.lang.Exception
 import javax.inject.Inject
 
@@ -19,6 +23,23 @@ class OnlineRegistrationViewModel @Inject constructor(private val networkReposit
     val passportPhoto1 = MutableLiveData<ResApis<ResCommon>>(ResApis.Loading())
     val passportPhoto2 = MutableLiveData<ResApis<ResCommon>>(ResApis.Loading())
     val passportPhoto3 = MutableLiveData<ResApis<ResCommon>>(ResApis.Loading())
+    val attachUploadData = MutableLiveData<ResApis<ResponseAttachUpload>>(ResApis.Loading())
+
+    fun attachUpload(file: RequestBody) {
+        viewModelScope.launch {
+            try {
+                networkRepository.attachUpload(file).also {
+                    if (it.isSuccessful) {
+                        attachUploadData.postValue(ResApis.Success(it.body()!!))
+                    } else {
+                        attachUploadData.postValue(ResApis.Error(it.errorBody()?.toString() ?: ""))
+                    }
+                }
+            } catch (e: Exception) {
+                attachUploadData.postValue(ResApis.Error(e.message ?: ""))
+            }
+        }
+    }
 
     fun setPassportSerial(token: String, documentType: String, passportSerial: String) =
         viewModelScope.launch {

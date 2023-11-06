@@ -63,9 +63,30 @@
         android:name="dev.davron.regionaltaxidriver.fragment.login.registration.ConfirmPhotoFragment"
         android:label="fragment_confirm_photo"
         tools:layout="@layout/fragment_confirm_photo" />
+
+    <action
+        android:id="@+id/to_camera_fragment"
+        app:destination="@id/cameraFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
     <fragment
         android:id="@+id/cameraFragment"
         android:name="dev.davron.regionaltaxidriver.fragment.mainActivity.oddFragments.CameraFragment"
         android:label="fragment_camera"
         tools:layout="@layout/fragment_camera" />
+
+    <action
+        android:id="@+id/to_check_camera_photo"
+        app:destination="@id/checkCameraPhotoFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+    <fragment
+        android:id="@+id/checkCameraPhotoFragment"
+        android:name="dev.davron.regionaltaxidriver.fragment.mainActivity.oddFragments.CheckCameraPhotoFragment"
+        android:label="fragment_check_camera_photo"
+        tools:layout="@layout/fragment_check_camera_photo" />
 </navigation>
