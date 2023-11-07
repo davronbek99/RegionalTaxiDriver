@@ -25,7 +25,39 @@ class OnlineRegistrationViewModel @Inject constructor(private val networkReposit
     val passportPhoto3 = MutableLiveData<ResApis<ResCommon>>(ResApis.Loading())
     val attachUploadData = MutableLiveData<ResApis<ResponseAttachUpload>>(ResApis.Loading())
 
-    fun attachUpload(file: RequestBody) {
+    fun attachUpload(file: MultipartBody.Part) {
+        viewModelScope.launch {
+            try {
+                networkRepository.attachUpload2(file).also {
+                    if (it.isSuccessful) {
+                        attachUploadData.postValue(ResApis.Success(it.body()!!))
+                    } else {
+                        attachUploadData.postValue(ResApis.Error(it.errorBody()?.toString() ?: ""))
+                    }
+                }
+            } catch (e: Exception) {
+                attachUploadData.postValue(ResApis.Error(e.message ?: ""))
+            }
+        }
+    }
+
+    fun attachUpload3(file: String) {
+        viewModelScope.launch {
+            try {
+                networkRepository.attachUpload3(file).also {
+                    if (it.isSuccessful) {
+                        attachUploadData.postValue(ResApis.Success(it.body()!!))
+                    } else {
+                        attachUploadData.postValue(ResApis.Error(it.errorBody()?.toString() ?: ""))
+                    }
+                }
+            } catch (e: Exception) {
+                attachUploadData.postValue(ResApis.Error(e.message ?: ""))
+            }
+        }
+    }
+
+    fun attachUpload2(file: RequestBody) {
         viewModelScope.launch {
             try {
                 networkRepository.attachUpload(file).also {

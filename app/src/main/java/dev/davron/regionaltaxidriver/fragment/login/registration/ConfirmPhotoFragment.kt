@@ -30,6 +30,7 @@ import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.single.PermissionListener
 import dagger.hilt.android.AndroidEntryPoint
 import dev.davron.regionaltaxidriver.databinding.FragmentConfirmPhotoBinding
+import dev.davron.regionaltaxidriver.fragment.onlineRegistration.onlineRegistrationViewModel.OnlineRegistrationViewModel
 import dev.davron.regionaltaxidriver.models.attachUpload.AttachUpload
 import dev.davron.regionaltaxidriver.models.login.fullName.RequestFullInformation
 import dev.davron.regionaltaxidriver.responseApis.ResApis
@@ -54,6 +55,7 @@ class ConfirmPhotoFragment : Fragment() {
     private lateinit var binding: FragmentConfirmPhotoBinding
 
     private lateinit var viewModel: PersonalInformationViewModel
+    private lateinit var onlineRegistrationViewModel: OnlineRegistrationViewModel
     private var photoFile: File? = null
     private var fromWhere: String = "gallery"
 
@@ -104,10 +106,30 @@ class ConfirmPhotoFragment : Fragment() {
                 }
             }
         }
+
+        onlineRegistrationViewModel.attachUploadData.observe(requireActivity()) {
+            when (it) {
+                is ResApis.Error -> {
+                    Toast.makeText(requireContext(), "Attach Upload Error", Toast.LENGTH_SHORT)
+                        .show()
+                }
+
+                is ResApis.Success -> {
+                    Toast.makeText(requireContext(), "Attach Upload Success", Toast.LENGTH_SHORT)
+                        .show()
+                }
+
+                else -> {
+
+                }
+            }
+        }
     }
 
     private fun init() {
         viewModel = ViewModelProvider(this)[PersonalInformationViewModel::class.java]
+        onlineRegistrationViewModel =
+            ViewModelProvider(this)[OnlineRegistrationViewModel::class.java]
 
 
     }
@@ -141,6 +163,7 @@ class ConfirmPhotoFragment : Fragment() {
                     // to do save new bitmap and close this fragment
                     if (photoFile != null && bitmap != null) {
                         Toast.makeText(requireContext(), "1-if", Toast.LENGTH_SHORT).show()
+                        Common.bitmapMutableLiveData.postValue(bitmap)
 
                         getImage.launch("image/*")
 //                        if (requireContext().checkCallingOrSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
@@ -211,9 +234,9 @@ class ConfirmPhotoFragment : Fragment() {
                         MimeTypeMap.getSingleton().getMimeTypeFromExtension(file.getExtension())
                             ?.toMediaType(), file
                     )
-
+                val photoBody = MultipartBody.Part.createFormData("file", file.name, requestFile)
+                onlineRegistrationViewModel.attachUpload(photoBody)
                 // MultipartBody.Part is used to send also the actual file name
-                val photoBody = MultipartBody.Part.createFormData("photo", file.name, requestFile)
                 Toast.makeText(requireContext(), "So'rov ketdi", Toast.LENGTH_SHORT).show()
 //                viewModel.attachUpload(AttachUpload(photoBody))
 //                binding.loadingLayout.loadingLayout.visibility = View.VISIBLE

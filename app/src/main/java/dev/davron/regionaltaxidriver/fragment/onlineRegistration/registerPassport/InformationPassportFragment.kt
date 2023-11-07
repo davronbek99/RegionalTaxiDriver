@@ -1,6 +1,8 @@
 package dev.davron.regionaltaxidriver.fragment.onlineRegistration.registerPassport
 
+import android.graphics.Bitmap
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,10 +29,14 @@ import dev.davron.regionaltaxidriver.utils.getBackStackData
 import dev.davron.regionaltaxidriver.utils.getExtension
 import dev.davron.regionaltaxidriver.utils.imageFileToBase64
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.parse
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
+import java.io.ByteArrayOutputStream
 import java.io.File
 
 @AndroidEntryPoint
@@ -246,6 +252,22 @@ class InformationPassportFragment : Fragment() {
 
         checkButtonType()
 
+//        Common.bitmapMutableLiveData.observe(viewLifecycleOwner) {
+//            val stream = ByteArrayOutputStream()
+//            it?.compress(Bitmap.CompressFormat.JPEG, 90, stream)
+//            val byteArray: ByteArray = stream.toByteArray()
+//            var encodedString = Base64.encodeToString(byteArray, Base64.DEFAULT)
+//
+//
+//            encodedString = "data:image/jpeg;base64,$encodedString"
+//
+//            Glide.with(requireActivity()).load(encodedString)
+//                .placeholder(R.drawable.ic_ava_image)
+//                .into(binding.imageFrontSide)
+//
+//            viewModel.attachUpload3(encodedString)
+//        }
+
         getBackStackData<File?>("photo", true) {
             if (it != null) {
                 when (currentClickedPosition) {
@@ -262,18 +284,29 @@ class InformationPassportFragment : Fragment() {
 
                         val token = MySharedPreferences.getToken(requireContext())
 
-                        val requestFile = RequestBody.create(
-                            MimeTypeMap.getSingleton().getMimeTypeFromExtension(it.getExtension())
-                                ?.toMediaType(), it
+//                        val photoBody: MultipartBody.Part =
+//                            MultipartBody.Part.createFormData("file", it.name, requestBody)
+                        var requestBody: RequestBody? = null
+//                        requestBody =
+//                            it.path.toRequestBody("multipart/form-data".toMediaTypeOrNull())
+//                        requestBody = RequestBody.create("file".toMediaType(), it)
+
+                        val requestBody2 = MultipartBody.Part.createFormData(
+                            "file",
+                            it.name,
+                            RequestBody.create("multipart/form-data".toMediaTypeOrNull(), it)
                         )
 
-                        var requestBody: RequestBody? = null
 
-                        val photoBody =
-                            MultipartBody.Part.createFormData("file", it.name, requestFile)
-                        requestBody = RequestBody.create("file".toMediaType(), it)
+//                        val requestFile = RequestBody.create(
+//                            MultipartBody.FORM, it
+//                        )
+//
+//                        val multipartBody =
+//                            MultipartBody.Part.createFormData("file", it.name, requestFile)
+//                        viewModel.attachUpload2(requestBody2)
                         viewModel.attachUpload(
-                            requestFile
+                            requestBody2
                         )
 
                         frontSideUploadingProgressBar = UploadingProgressBar(requireContext(),
@@ -397,7 +430,7 @@ class InformationPassportFragment : Fragment() {
             when (it) {
                 is ResApis.Error -> {
                     Toast.makeText(
-                        requireContext(), it.message, Toast.LENGTH_SHORT
+                        requireContext(), "Net ${it.message}", Toast.LENGTH_SHORT
                     ).show()
                     Log.d("STATUS", it.message)
                     binding.firstPositionFrontSide.visibility = View.VISIBLE
@@ -406,6 +439,7 @@ class InformationPassportFragment : Fragment() {
                 }
 
                 is ResApis.Success -> {
+                    Toast.makeText(requireContext(), "Da ${it.data.id}", Toast.LENGTH_SHORT).show()
                     Log.d("STATUS", it.data.url!!)
                     if (isFrontSideCancelled) {
                         isFrontSide = false
@@ -442,3 +476,51 @@ class InformationPassportFragment : Fragment() {
         }
     }
 }
+
+
+/*
+* import okhttp3.*
+import java.io.File
+import org.json.JSONObject
+
+object FileService {
+
+    @Throws(Exception::class)
+    suspend fun sendImageToBackup(imageFile: File): String? {
+        val url = "http://$IP/attach/upload"
+        val client = OkHttpClient()
+        val requestBody = MultipartBody.Builder()
+            .setType(MultipartBody.FORM)
+            .addFormDataPart(
+                "file",
+                imageFile.name,
+                RequestBody.create(MediaType.parse("application/  "), imageFile)
+            )
+            .build()
+
+        val request = Request.Builder()
+            .url(url)
+            .post(requestBody)
+            .build()
+
+        try {
+            val response = client.newCall(request).execute()
+            if (response.isSuccessful) {
+                val jsonResponse = response.body()?.string()
+                val value = JSONObject(jsonResponse)
+                val getUrl = GetImage.fromJson(value)
+                val downloadUrl = getUrl.url.toString()
+                println("url===========: $downloadUrl")
+                return downloadUrl
+            } else {
+                // Backup failed
+                println("Image backup failed with status code ${response.code()}")
+            }
+        } catch (e: Exception) {
+            // Error occurred during backup
+            LogService.w(e.toString())
+        }
+        return null
+    }
+}
+* */

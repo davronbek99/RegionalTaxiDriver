@@ -49,12 +49,33 @@ interface ApiService {
         @Body requestFullInformation: RequestFullInformation
     ): Response<ResponseFullInformation>
 
-//    @Multipart
+    //    @Multipart\
+    @POST("attach/upload")
+    @Headers("Content-Type: application/octet-stream")
+    suspend fun attachUpload(
+        @Body file: RequestBody
+    ): Response<ResponseAttachUpload>
+//    @POST("attach/upload")
+//    @Headers("application/octet-stream")
+//    suspend fun attachUpload(
+//        @Body file: RequestBody
+//    ): Response<ResponseAttachUpload>
+
+
+    @Multipart
+    @POST("attach/upload")
+    suspend fun attachUpload2(
+        @Part file: MultipartBody.Part
+    ): Response<ResponseAttachUpload>
+
+
+    @FormUrlEncoded
     @POST("attach/upload")
     @Headers("Content-Type: application/json")
-    suspend fun attachUpload(
-         @Body file: RequestBody
+    suspend fun attachUpload3(
+        @Field("file") file: String
     ): Response<ResponseAttachUpload>
+
 
     @FormUrlEncoded
     @POST("driver/auth/update")

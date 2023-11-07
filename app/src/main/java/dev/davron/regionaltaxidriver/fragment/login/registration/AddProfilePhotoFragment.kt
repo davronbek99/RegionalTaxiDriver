@@ -277,6 +277,7 @@ class AddProfilePhotoFragment : Fragment(), ChooseAddPhotoTypeDialog.OnItemClick
 
     private val getPhotoFromGallery =
         registerForActivityResult(ActivityResultContracts.GetContent()) {
+            Toast.makeText(requireContext(), "Gallery", Toast.LENGTH_SHORT).show()
             if (it != null) {
                 photoFile = saveImage(it, System.currentTimeMillis().toString())
                 binding.avaImageView.setImageURI(Uri.fromFile(photoFile))
